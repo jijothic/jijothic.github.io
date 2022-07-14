@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+  <title>Ryan Mack</title>
+  <link>https:&#x2F;&#x2F;ryanmack.me</link>
+  <description>The feed of updates to 's blog.</description>
+  <updated>Tue, 22 Sep 2015 00:00:00 GMT</updated>
+  <id>https:&#x2F;&#x2F;ryanmack.me</id>
+  <author>
+  <name></name>
+  </author>
+  <item>
+    <title>All but the Last</title>
+    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;all-but-the-last</link>
+    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;all-but-the-last</guid>
+    <pubDate>Tue, 22 Sep 2015 00:00:00 +0000</pubDate>
+    <description>
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs css&quot;&gt;&lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.link&lt;&#x2F;span&gt; {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;margin-right&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1rem&lt;&#x2F;span&gt;;
+}
+
+&lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.link&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-selector-pseudo&quot;&gt;:last-child&lt;&#x2F;span&gt; {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;margin-right&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;0&lt;&#x2F;span&gt;;
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Does this look familiar?&lt;&#x2F;p&gt;
+&lt;p&gt;We use this a lot for list layouts where we want to have gutters, but not on the last element, otherwise it will get knocked down and wrap below.&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;better-method&quot;&gt;Better Method&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs css&quot;&gt;&lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.link&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-selector-pseudo&quot;&gt;:not(&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;hljs-selector-pseudo&quot;&gt;:last-child)&lt;&#x2F;span&gt; {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;margin-right&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1rem&lt;&#x2F;span&gt;;
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here we only have to set the margin once and with only one rule. This says, put &lt;code&gt;margin-right: 1rem&lt;&#x2F;code&gt; on all &lt;code&gt;.links&lt;&#x2F;code&gt; except the last. Easy peasy lemon squeezy. You can do the same thing with removing borders on first&#x2F;last elements. I’m sure there are plenty of other great use cases you can find.&lt;&#x2F;p&gt;</description>
+  </item>
+  <item>
+    <title>Sass Animation Delays</title>
+    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;sass-animation-delays</link>
+    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;sass-animation-delays</guid>
+    <pubDate>Wed, 02 Sep 2015 00:00:00 +0000</pubDate>
+    <description>
+&lt;p&gt;Here’s a quick and easy way to delay animations between elements by using a Sass &lt;code&gt;@for&lt;&#x2F;code&gt; loop.&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs scss&quot;&gt;&lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.dot&lt;&#x2F;span&gt; {
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;animation&lt;&#x2F;span&gt;: bob &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1s&lt;&#x2F;span&gt; ease infinite;
+  
+  @&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;for&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$i&lt;&#x2F;span&gt; from 1 through 4 {
+    &amp;amp;:nth-child(#{&lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$i&lt;&#x2F;span&gt;}) {
+      &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;animation-delay&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$i&lt;&#x2F;span&gt; * &lt;span class&#x3D;&quot;hljs-number&quot;&gt;0.1s&lt;&#x2F;span&gt;;
+    }
+  }
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id&#x3D;&quot;google-dots-example&quot;&gt;Google Dots Example&lt;&#x2F;h3&gt;
+&lt;p data-height&#x3D;&quot;300&quot; data-theme-id&#x3D;&quot;11441&quot; data-slug-hash&#x3D;&quot;3988b1d2afcfb1f6d0a0cb1a394b9b5e&quot; data-default-tab&#x3D;&quot;result&quot; data-user&#x3D;&quot;ryanmclaughlin&quot; class&#x3D;&quot;codepen&quot;&gt;
+See the Pen &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&#x2F;pen&#x2F;3988b1d2afcfb1f6d0a0cb1a394b9b5e&#x2F;&quot;&gt;3988b1d2afcfb1f6d0a0cb1a394b9b5e&lt;&#x2F;a&gt; by Ryan McLaughlin (&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&quot;&gt;@ryanmclaughlin&lt;&#x2F;a&gt;) on &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&quot;&gt;CodePen&lt;&#x2F;a&gt;.
+&lt;&#x2F;p&gt;
+&lt;script async src&#x3D;&quot;&#x2F;&#x2F;assets.codepen.io&#x2F;assets&#x2F;embed&#x2F;ei.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&#x2F;pen&#x2F;3988b1d2afcfb1f6d0a0cb1a394b9b5e&#x2F;&quot;&gt;See the CodePen&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;</description>
+  </item>
+  <item>
+    <title>Blot Variables</title>
+    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;blot-variables</link>
+    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;blot-variables</guid>
+    <pubDate>Fri, 28 Aug 2015 04:57:25 +0000</pubDate>
+    <description>
+&lt;p&gt;I use and love &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;blot.im&quot;&gt;blot.im&lt;&#x2F;a&gt; for my site. Not all of the variables are in the documentation quite yet, so &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;llllll.li&#x2F;&quot;&gt;David Merfield&lt;&#x2F;a&gt; has kindly provided me with a complete list of them. I’ll probably delete this as the documentation is updated.&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;lists&quot;&gt;Lists&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;recentEntries&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;list’&lt;br&gt; &lt;code&gt;allEntries&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;list’&lt;br&gt; &lt;code&gt;allTags&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;list’&lt;br&gt;&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;blog&quot;&gt;Blog&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;handle&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;title&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;avatar&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;roundAvatar&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;cssURL&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;scriptURL&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;menu&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;list’&lt;br&gt; &lt;code&gt;dateFormat&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;dateDisplay&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;timeZone&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;number’&lt;br&gt; &lt;code&gt;hideDates&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;plugins&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;object’&lt;br&gt;&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;entry&quot;&gt;Entry&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;id&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;number’&lt;br&gt; &lt;code&gt;url&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;permalink&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;title&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;titleTag&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’ &#x2F;&#x2F; The &lt;span class&#x3D;&quot;small-caps&quot;&gt;HTML&lt;&#x2F;span&gt; tag containing the title text&lt;br&gt; &lt;code&gt;body&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’ &#x2F;&#x2F; html excluding the &lt;span class&#x3D;&quot;small-caps&quot;&gt;HTML&lt;&#x2F;span&gt; tag for its title&lt;br&gt; &lt;code&gt;summary&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’ &#x2F;&#x2F; plain text summary of article&lt;br&gt; &lt;code&gt;teaser&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’ &#x2F;&#x2F; stuff before &lt;!--&#39;more&#39;--&gt;, used before read more links…&lt;br&gt; &lt;code&gt;teaserBody&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’ &#x2F;&#x2F; teaser excluding titleTag&lt;br&gt; &lt;code&gt;more&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’ &#x2F;&#x2F; whether teaser differs from &lt;span class&#x3D;&quot;small-caps&quot;&gt;HTML&lt;&#x2F;span&gt;&lt;br&gt; &lt;code&gt;html&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;slug&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;name&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;path&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;size&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;number’&lt;br&gt; &lt;code&gt;tags&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;array’&lt;br&gt; &lt;code&gt;menu&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;page&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;deleted&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;draft&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;scheduled&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;date&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;string’&lt;br&gt; &lt;code&gt;created&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;number’&lt;br&gt; &lt;code&gt;updated&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;number’&lt;br&gt; &lt;code&gt;render&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;boolean’&lt;br&gt; &lt;code&gt;metadata&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;object’&lt;br&gt; &lt;code&gt;retrieve&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;object’&lt;br&gt; &lt;code&gt;partials&lt;&#x2F;code&gt;:&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;array’&lt;br&gt;&lt;&#x2F;p&gt;</description>
+  </item>
+  <item>
+    <title>CSS Truncation Mixin</title>
+    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;css-truncation-mixin</link>
+    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;css-truncation-mixin</guid>
+    <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+    <description>
+&lt;p&gt;I want a be-all and end-all &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; solution for text truncation on the web. I’ve lost count of how many times I’ve come across projects where I’ve done this same thing over and over. Some solutions were good, some bad; some Javascript, some &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I finally came across a &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;siiron&#x2F;pen&#x2F;jfBhy&quot;&gt;CodePen&lt;&#x2F;a&gt; by &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;twitter.com&#x2F;siiron&quot;&gt;Ronny Siikaluoma&lt;&#x2F;a&gt; which has come up with a very clever &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; only solution.&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;the-class&quot;&gt;The Class&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs scss&quot;&gt;&lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.line-clamp&lt;&#x2F;span&gt; {
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;display&lt;&#x2F;span&gt;: block;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;display&lt;&#x2F;span&gt;: -webkit-box;
+  -webkit-box-orient: vertical;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;line-height&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1.5&lt;&#x2F;span&gt;;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;overflow&lt;&#x2F;span&gt;: hidden;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;padding&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;0&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;hljs-meta&quot;&gt;!important&lt;&#x2F;span&gt;;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;position&lt;&#x2F;span&gt;: relative;
+  &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;text-overflow&lt;&#x2F;span&gt;: ellipsis;
+
+  &amp;amp;:after {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;background&lt;&#x2F;span&gt;: linear-gradient(to right, rgba(&lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;0&lt;&#x2F;span&gt;), rgba(&lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;255&lt;&#x2F;span&gt;, &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1&lt;&#x2F;span&gt;) &lt;span class&#x3D;&quot;hljs-number&quot;&gt;75%&lt;&#x2F;span&gt;);
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;content&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-string&quot;&gt;&quot;&quot;&lt;&#x2F;span&gt;;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;display&lt;&#x2F;span&gt;: block;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;position&lt;&#x2F;span&gt;: absolute;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;right&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;0&lt;&#x2F;span&gt;;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;text-align&lt;&#x2F;span&gt;: right;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;width&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;25%&lt;&#x2F;span&gt;;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;height&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1rem&lt;&#x2F;span&gt; * &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1.5&lt;&#x2F;span&gt;;
+  }
+}
+
+@supports (-webkit-line-clamp: 1) {
+  &lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.line-clamp&lt;&#x2F;span&gt;:after {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;display&lt;&#x2F;span&gt;: none &lt;span class&#x3D;&quot;hljs-meta&quot;&gt;!important&lt;&#x2F;span&gt;;
+  }
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;What is &lt;code&gt;@supports&lt;&#x2F;code&gt;? It’s a simple way to detect if a browser supports a given &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; property, or not. It’s &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;caniuse.com&#x2F;#search&#x3D;supports&quot;&gt;fairly well supported&lt;&#x2F;a&gt; now-a-days, but will be perfect for our webkit-only line-clamp feature we’re using here.&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;the-mixin&quot;&gt;The Mixin&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs scss&quot;&gt;@&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;mixin&lt;&#x2F;span&gt; line-clamp(&lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$lines&lt;&#x2F;span&gt;) {
+  &lt;span class&#x3D;&quot;hljs-selector-class&quot;&gt;.line-clamp--&lt;&#x2F;span&gt;#{&lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$lines&lt;&#x2F;span&gt;} {
+    -webkit-line-clamp: &lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$lines&lt;&#x2F;span&gt;;
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;height&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1rem&lt;&#x2F;span&gt; * &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1.5&lt;&#x2F;span&gt; * &lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$lines&lt;&#x2F;span&gt;;
+    &amp;amp;:after {
+      &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;top&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1rem&lt;&#x2F;span&gt; * &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1.5&lt;&#x2F;span&gt; * (&lt;span class&#x3D;&quot;hljs-variable&quot;&gt;$lines&lt;&#x2F;span&gt; - &lt;span class&#x3D;&quot;hljs-number&quot;&gt;1&lt;&#x2F;span&gt;);
+    }
+  }
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p class&#x3D;&quot;gray&quot;&gt;
+Note: This mixin only creates a &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; rule. You don’t want to use it within a rule.
+&lt;&#x2F;p&gt;
+&lt;p&gt;###Create your rule Now just include the mixin and adjust the line count for your needs. The example below will output a class modifier &lt;code&gt;.line-clamp--2&lt;&#x2F;code&gt; to use on the elements you would like to truncate.&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs scss&quot;&gt;@&lt;span class&#x3D;&quot;hljs-keyword&quot;&gt;include&lt;&#x2F;span&gt; line-clamp(&lt;span class&#x3D;&quot;hljs-number&quot;&gt;2&lt;&#x2F;span&gt;);&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id&#x3D;&quot;example&quot;&gt;Example&lt;&#x2F;h3&gt;
+&lt;p data-height&#x3D;&quot;300&quot; data-theme-id&#x3D;&quot;11441&quot; data-slug-hash&#x3D;&quot;7e95cf31cbb709792eeb48a3ad5dc375&quot; data-default-tab&#x3D;&quot;result&quot; data-user&#x3D;&quot;ryanmclaughlin&quot; class&#x3D;&quot;codepen&quot;&gt;
+See the Pen &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&#x2F;pen&#x2F;7e95cf31cbb709792eeb48a3ad5dc375&#x2F;&quot;&gt;7e95cf31cbb709792eeb48a3ad5dc375&lt;&#x2F;a&gt; by Ryan McLaughlin (&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&quot;&gt;@ryanmclaughlin&lt;&#x2F;a&gt;) on &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&quot;&gt;CodePen&lt;&#x2F;a&gt;.
+&lt;&#x2F;p&gt;
+&lt;script async src&#x3D;&quot;&#x2F;&#x2F;assets.codepen.io&#x2F;assets&#x2F;embed&#x2F;ei.js&quot;&gt;&lt;&#x2F;script&gt;</description>
+  </item>
+  <item>
+    <title>Quick Measure</title>
+    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;quick-measure</link>
+    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;quick-measure</guid>
+    <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
+    <description>
+&lt;p&gt;Most of us are familiar with the 60-75 character long measure for a readable web. There are many ways to implement this, but when I’m prototyping something and probably using a non-standard font, I like to use the &lt;code&gt;ch&lt;&#x2F;code&gt; &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; unit to get some decent line length for paragraphs of text.&lt;&#x2F;p&gt;
+&lt;p&gt;What is &lt;code&gt;ch&lt;&#x2F;code&gt;? It’s another font-relative unit, similar to &lt;code&gt;em&lt;&#x2F;code&gt;, &lt;code&gt;rem&lt;&#x2F;code&gt;, &lt;code&gt;ex&lt;&#x2F;code&gt;. The unit is based on the width of&lt;span class&#x3D;&quot;push-single&quot;&gt;&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;pull-single&quot;&gt;‘&lt;&#x2F;span&gt;0’ of the font being used. But, mark ye, be forewarned; this width is not the best estimate of a typeface’s average character width. It’s not a bad place to start thought, especially for prototyping.&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;example&quot;&gt;Example&lt;&#x2F;h3&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;hljs css&quot;&gt;&lt;span class&#x3D;&quot;hljs-selector-tag&quot;&gt;p&lt;&#x2F;span&gt; {
+    &lt;span class&#x3D;&quot;hljs-attribute&quot;&gt;max-width&lt;&#x2F;span&gt;: &lt;span class&#x3D;&quot;hljs-number&quot;&gt;65ch&lt;&#x2F;span&gt;;
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughlin&#x2F;pen&#x2F;0cf2f3cb5e6e32544709bd440457918d&quot;&gt;See the CodePen&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;And yeah&amp;thinsp;&amp;mdash;&amp;thinsp;I’m not using this method on this site, but it’s a nice trick in my bag that I frequent.&lt;&#x2F;p&gt;</description>
+  </item>
+</channel>
+</rss>

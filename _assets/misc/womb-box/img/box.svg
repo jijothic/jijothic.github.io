@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>box</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(5.000000, 12.000000)">
+            <rect id="Rectangle-11" stroke="#000000" stroke-width="2" fill="#FFFFFF" x="43" y="11" width="7" height="7"></rect>
+            <circle id="Oval-4" stroke="#000000" stroke-width="2" fill="#FFFFFF" cx="36.5" cy="14.5" r="8.5"></circle>
+            <rect id="Rectangle-5" stroke="#DCB692" stroke-width="2" fill="#FFFFFF" x="7" y="18" width="46" height="28"></rect>
+            <rect id="Rectangle-6" fill="#DCB692" x="37" y="19" width="2" height="27"></rect>
+            <path d="M20,2.53518376 L20,18 L36,18 L36,2.53518376 L34,1.20185043 L31,3.20185043 L28,1.20185043 L25,3.20185043 L22,1.20185043 L20,2.53518376 Z" id="Rectangle-7" stroke="#000000" stroke-width="2" fill="#FFFFFF"></path>
+            <rect id="Rectangle-10" fill="#000000" x="23" y="7" width="10" height="2"></rect>
+            <path d="M10,18 L20,18 L20,14 C20,11.2385763 17.7614237,9 15,9 C12.2385763,9 10,11.2385763 10,14 L10,18 Z" id="Rectangle" stroke="#000000" stroke-width="2" fill="#FFFFFF"></path>
+            <rect id="Rectangle-3" stroke="#000000" stroke-width="2" x="14" y="6" width="2" height="2"></rect>
+            <path d="M6.63983239,18 L1.56290931,29 L32.3601676,29 L37.4370907,18 L6.63983239,18 Z" id="Rectangle-2" stroke="#DCB692" stroke-width="2" fill="#FFFFFF"></path>
+            <path d="M38.5629093,18 L43.6398324,29 L58.4370907,29 L53.3601676,18 L38.5629093,18 Z" id="Rectangle-4" stroke="#DCB692" stroke-width="2" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

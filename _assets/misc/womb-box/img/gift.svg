@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>gift</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="gift" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-9" transform="translate(13.000000, 15.000000)">
+            <rect id="Rectangle-13" stroke="#000000" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="43" height="38"></rect>
+            <rect id="Rectangle-16" fill="#F89581" x="2" y="16" width="41" height="2"></rect>
+            <rect id="Rectangle-15" fill="#F89581" x="16" y="2" width="2" height="36"></rect>
+            <path d="M16,16 L16,11.5 C16,9.01471863 13.9852814,7 11.5,7 C9.01471863,7 7,9.01471863 7,11.5 C7,13.9852814 9.01471863,16 11.5,16 L16,16 Z" id="Rectangle-14-Copy-2" stroke="#F89581" stroke-width="2"></path>
+            <path d="M18,16 L22.5,16 C24.9852814,16 27,13.9852814 27,11.5 C27,9.01471863 24.9852814,7 22.5,7 C20.0147186,7 18,9.01471863 18,11.5 L18,16 Z" id="Rectangle-14-Copy-3" stroke="#F89581" stroke-width="2"></path>
+            <path d="M17,16 L10,23" id="Line" stroke="#F89581" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M17.5,16.5 L24,23" id="Line-2" stroke="#F89581" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M30,28 L30,34 L39,34 L39,28 L30,28 Z" id="Rectangle-17" stroke="#000000" stroke-width="2" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

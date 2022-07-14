@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Web Animations</title>
+
+		<meta name="description" content="An overview of animations on the web with performance in mind.">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+		<!-- User CSS -->
+		<style id="user-css-output" type="text/css">
+			.reveal * {
+  font-family: "Calibre", Helvetica Neue, sans-serif !important;
+}
+.reveal a {
+  color: #FF5B5A !important;
+}
+.reveal a.blue {
+  color: #2D3DAC !important;
+}
+@font-face {
+  font-family: "Calibre";
+  src: url('https://ryanmack.me/_assets/misc/Calibre-Medium.otf');
+}
+.reveal .navigate-left {
+  border-right-color: rgba(77, 107, 121, 0.3) !important;
+}
+.reveal .navigate-right {
+  border-left-color: rgba(77, 107, 121, 0.3) !important;
+}
+.reveal .navigate-up {
+  border-bottom-color: rgba(77, 107, 121, 0.3) !important;
+}
+.reveal .navigate-down {
+  border-top-color: rgba(77, 107, 121, 0.3) !important;
+}
+.reveal.has-dark-background .navigate-left {
+  border-right-color: #fff !important;
+}
+.reveal.has-dark-background .navigate-right {
+  border-left-color: #fff !important;
+}
+.reveal.has-dark-background .navigate-up {
+  border-bottom-color: #fff !important;
+}
+.reveal.has-dark-background .navigate-down {
+  border-top-color: #fff !important;
+}
+
+		</style>
+	</head>
+	<body class="reveal-viewport theme-font-league theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section class="has-dark-background" data-background-image="web-animations-2-3/399b1bf827e15a74cff9b077b1b992f4.gif" data-background-color="#2c39af"  data-id="fc2fa3be5ca0c92402ac7b7ecc58ff72"><div class="sl-block" data-block-type="text" style="width: 710px; left: 125px; top: 200px; height: auto;" data-block-id="102da989b198c7864f6edb1a9b6a42d6"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 91, 90); font-size: 160%;" dir="ui">
+<h1 style="line-height:1; margin-bottom: 0;"><strong>Web Animations</strong></h1><a href="https://ryanmack.me" target="_blank" style="color: white !important;font-size: 2rem;">A talk by <span style="text-decoration: underline;">Ryan Mack</span> - 2015</a>
+</div></div></section><section class="stack" data-id="5ae8f5d0742c7d4ceae1e42393b97439"><section data-id="07dff457f2fa9ea02bbf3666950adf75"><div class="sl-block" data-block-type="text" data-block-id="813a629d44fd248dbbeb9d6d149dd821" style="height: auto; min-width: 30px; min-height: 30px; width: 815px; left: 80px; top: 141px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:56px">When is it best to use CSS for an animation, and when is it best to use JavaScript? How do you choose?</span></p>
+</div></div></section><section data-id="290e6f09038114329687af8c3af2eb9b"><div class="sl-block" data-block-type="text" data-block-id="e4476feeb5ed622c016b2d641a01dc2f" style="height: auto; min-width: 30px; min-height: 30px; width: 799px; left: 80px; top: 280px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 91, 90);">
+<h2><span>Short answer</span></h2>
+</div></div>
+</section><section data-id="12aa23746a15b7cdbff52141e0a061b6"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 720px; left: 80px; top: 256px;" data-block-id="3573b810fbc89e3fd97db9565360d9e8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">If you can animate it in CSS (transitions or keyframes), then do it there. The browser will always be able to optimize it better, rather than asking your javascript every 16ms what it should do.</span></span></p>
+</div></div></section><section><div class="sl-block" data-block-type="math" data-block-id="7354dace21b87c8070a1b66dc97445b5" style="width: auto; height: auto; min-width: 30px; min-height: 30px; left: 203px; top: 280px;"><div class="sl-block-content" style="z-index: 11;">
+<div class="math-input">1 / 60 = 0.016666667 = 16ms</div>
+<div class="math-output"><span class="katex"><span class="katex-inner"><span class="strut" style="height: 0.75em;"></span><span class="strut bottom" style="height: 1em; vertical-align: -0.25em;"></span><span class="base textstyle uncramped"><span class="mord">1</span><span class="mord">/</span><span class="mord">6</span><span class="mord">0</span><span class="mrel">=</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mord">6</span><span class="mord">6</span><span class="mord">6</span><span class="mord">6</span><span class="mord">6</span><span class="mord">6</span><span class="mord">7</span><span class="mrel">=</span><span class="mord">1</span><span class="mord">6</span><span class="mord mathit">m</span><span class="mord mathit">s</span></span></span></span></div>
+</div></div></section><section data-id="f3372e4aa08b3694f24fd025e37f3338"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 276px;" data-block-id="41aee03e79705243d78b89d1248e7581"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(27, 39, 148);">
+<h2><span>Long Answer</span></h2>
+</div></div>
+
+
+</section><section class="has-light-background" data-background-color="#e8eaf0" data-id="bc157cc2ec3fa0dd57ace85c384098fb"><div class="sl-block" data-block-type="text" data-block-id="abc3fb8faa5c6e970909d7fed25e3b7b" style="height: auto; min-width: 30px; min-height: 30px; width: 664px; left: 148px; top: 218px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 91, 90); font-size: 260%;">
+<p>Performance is the art of avoiding work</p>
+</div></div></section><section><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 105px;" data-block-id="c1c7532247f374e634c395bb01b71c26"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">People want performance</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="3c66cf1167a0673cbc1ad121c79514a4" style="min-width: 30px; min-height: 30px; width: 450.443254817987px; height: 371px; left: 80px; top: 189px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="567" data-natural-height="467" style="visibility: visible;" data-src="web-animations-2-3/9d20e3d0359358cc1836216794c4e6ab.png"></div></div></section><section data-id="06f70a45d26688a7588fea25b4c7a704"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 276px;" data-block-id="b40eaf1002c0c4cc149f7228c1cf3b72"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 91, 90);">
+<h2>JAVASCRIPT Animations</h2>
+</div></div>
+
+
+</section><section data-id="8c21ee7264f2c99d63159d853975900c"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 256px;" data-block-id="ad0ea1ff3ae1b143e9ddb41b5a3ed9a9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="text-align:left">Runs on one thread along with other JS, style calculations, layout, and painting</span></p>
+
+<p style="text-align:left"> </p>
+
+<p style="text-align:left"><span style="text-align:left">Chance to miss to a frame</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 80px; top: 191px;" data-block-id="45b1d89dd03224d4296461679a5c6a0a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p style="text-align:left">-</p>
+</div></div></section><section data-id="6fa46a15a017b92a7a803f778a752f1b">
+<div class="sl-block" data-block-type="shape" data-block-id="499cbb5632ed476fe7b5de0d9ebc61fe" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 164px; top: 280px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(20, 21, 23)" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(20, 21, 23)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 322px; top: 280px;" data-block-id="b0c5342939a8b531cd1f8bdfcc79d377"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(44, 57, 175)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 478px; top: 280px;" data-block-id="02fea69aff4ed9529a076707e1264220"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(255, 91, 90)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 636px; top: 280px;" data-block-id="12f6666ef5f711b09c85e3bc9c17bb47"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(93, 236, 132)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(93, 236, 132)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="fa20a590e71439910fe7099ccf38dddf" style="height: auto; min-width: 30px; min-height: 30px; width: 56px; left: 212px; top: 385px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(20, 21, 23);">
+<p>JS</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 310px; top: 385px;" data-block-id="6c96bfccab02aa590a2f740d6062911f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(44, 57, 175);">
+<p>Style/Layout</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 470px; top: 385px;" data-block-id="eee74fe72c91b869014a37cae03e1b09"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(255, 91, 90);">
+<p>Paint</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 630px; top: 385px;" data-block-id="bf060a23402603583925a040506fbf1a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; color: rgb(93, 236, 132);">
+<p>Composite</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="4f2a2eeadfa03f72cb3ed90d2a779c63" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 322px; top: 280px;"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(19, 20, 22)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(19, 20, 22)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 478px; top: 280px;" data-block-id="1e0a4ee8ddd9b4c3f660c20d54a795a4"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(44, 57, 175)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 636px; top: 280px;" data-block-id="e88d41aef0fad22c38f82d7704049b26"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(255, 91, 90)"></polygon></svg></div></div></section><section><div class="sl-block" data-block-type="image" data-block-id="43c7c29b11a78ce1f666dfe455ea8992" style="min-width: 30px; min-height: 30px; width: 322.330373001776px; height: 428px; left: 318px; top: 136px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="424" data-natural-height="563" data-src="web-animations-2-3/1d7f6630a23256c095f008acbf837aa0.gif"></div></div></section><section data-id="e3e453aaed89d8aaf20cbe71aa93fdf7"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 256px;" data-block-id="9f6652f2fe2049117a60e2f8b5738a29"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">More control</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 311px;" data-block-id="62f25e5c541cefe7b8d5afa8208f9b5e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; color: rgb(255, 91, 90);" dir="ui">
+<p style="text-align:left"><span style="text-align:left">play(), pause(), reverse() and restart(), on scroll</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 80px; top: 191px;" data-block-id="75263d38a99a2174b8fcf85fb570134a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(19, 20, 22);">
+<p style="text-align:left">+</p>
+</div></div></section><section class="has-dark-background" data-background-color="#2c39af" data-id="f9d697477c983c4d3727d1e4dc6c80b6"><div class="sl-block" data-block-type="iframe" data-block-id="311c592f6e69d0f1e183307b32301ec3" style="min-width: 30px; min-height: 30px; width: 960px; height: 600px; left: 0px; top: 100px;">
+    <div class="sl-block-content" style="z-index: 11;">
+        <iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock" class="DRAGDIS_iframe" data-src="//codepen.io/ryanmclaughlin/embed/236c147a3a75f1237a3c818469fe9752/?height=600&amp;theme-id=11441"></iframe>
+    </div>
+</div></section><section data-id="8051e8fab9431345423006da90036427"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 276px;" data-block-id="12dd18cfa65096da4f806c82894d5e0c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(27, 39, 148);">
+<h2><span>Css Animations</span></h2>
+</div></div>
+
+
+</section><section data-id="d3ab34d3f3f7be0c0c170425ae868ff6">
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 256px;" data-block-id="1ae255fb149d299802c2fbdca0072fa7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(20, 21, 23);">
+<p style="text-align:left">Lacks expressive control of JavaScript</p>
+
+<p style="text-align:left"><span>Limited in complexity of animations</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="cca6892ccd4ab43fe0c98ab8790707c2" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 80px; top: 191px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p style="text-align:left">-</p>
+</div></div></section><section data-id="e43d7a3cfa10a3f02cfd4c176f091df5"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 256px;" data-block-id="046b4d64c5ed49b05d58f5b47aacba60"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span>The browser is able optimize more</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 311px;" data-block-id="e1a9e6a6e6a2742d22f0aee13bf4d0bd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px; color: rgb(44, 57, 175);" dir="ui">
+<p style="text-align:left">Hardware acceleration</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 350px;" data-block-id="7aaf65d67d47d2c35104c2bb1d4d1254"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; border-width: 1px; color: rgb(44, 57, 175);" dir="ui">
+<p style="text-align:left"><span style="color:rgb(44, 57, 175); text-align:left">a.k.a., “Here you go, GPU</span><strong>”</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 80px; top: 191px;" data-block-id="204dfdb1b3a7a1db065ee1aa6803014b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(19, 20, 22);">
+<p style="text-align:left">+</p>
+</div></div></section></section><section class="stack" data-id="cd803a975f2169092e6852b7ccf474a6"><section data-id="1d61020de0cd28370de7143d0404f584"><div class="sl-block" data-block-type="text" style="height: auto; width: 757px; left: 80px; top: 141px;" data-block-id="7b1c6c9669a401fb21a2adf2c606497e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:56px">Hardware acceleration? How?</span></p>
+</div></div></section><section class="has-dark-background" data-background-image="web-animations-2-3/399b1bf827e15a74cff9b077b1b992f4.gif" data-background-color="#2c39af" data-id="4464fbb7a72aa6ef70adefc01064f63c"><div class="sl-block" data-block-type="text" style="width: 710px; left: 125px; top: 234px; height: auto;" data-block-id="5e2e490dc7ecdfae96bb862ff1a969c9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="color: rgb(255, 91, 90); font-size: 160%; z-index: 12;" dir="ui">
+<h1 style="line-height:1;"><strong>PAINT STORMS</strong></h1>
+</div></div></section><section data-id="4ecd5bd8fe3f02ceec22ca07d28cd318"><div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 161px; top: 280px;" data-block-id="0b69ecef6feba2af2a4092a0971b4d1f"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(20, 21, 23)" data-shape-stretch="true" style="z-index: 10; opacity: 0.1;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(20, 21, 23)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 320px; top: 280px;" data-block-id="d0d24009cbbdde3c43ee0e2d50be7537"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(44, 57, 175)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 480px; top: 280px;" data-block-id="a59498f14efd9db5a67f1a71fa72ad5b"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(255, 91, 90)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 638px; top: 280px;" data-block-id="56f504410d86b2fad6e53df62c00724e"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(93, 236, 132)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(93, 236, 132)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 56px; left: 212px; top: 385px;" data-block-id="cf6241a9e49cdb50886cc7d2e41bcdb6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(20, 21, 23); opacity: 0.1;">
+<p>JS</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 310px; top: 385px;" data-block-id="2d9c152acfa0fc489ff4095370cf389e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(44, 57, 175);">
+<p>Style/Layout</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 470px; top: 385px;" data-block-id="f23e665589c01f2aa90f59a7979608b1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(255, 91, 90);">
+<p>Paint</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 630px; top: 385px;" data-block-id="3d75a3af2e1a0d04d6fcf8d85a75040e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; color: rgb(93, 236, 132);">
+<p>Composite</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 480px; top: 280px;" data-block-id="e6ad7fb3a97de83be9c8974c29f6d500"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(44, 57, 175)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 638px; top: 280px;" data-block-id="568baa23dc36e188f90dee0fc9830fcc"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(255, 91, 90)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="b83681365198f228ea5dfa1d56773c5c" style="min-width: 4px; min-height: 4px; width: 480px; height: 4px; left: 320px; top: 210px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 480 4"><rect width="480" height="4" class="shape-element" fill="#000000"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 320px; top: 280px;" data-block-id="55c0e9a8edb86011a943402dd2416684"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(232, 232, 232)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(232, 232, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 4px; height: 28px; left: 320px; top: 210px;" data-block-id="3f11c230380bd8aa3030f832cb3aca8e"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 28"><rect width="4" height="28" class="shape-element" fill="#000000"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="4a70caf743505c96150a551efc75e10d" style="min-width: 4px; min-height: 4px; width: 12.5px; height: 8px; left: 316px; top: 238px;"><div class="sl-block-content" data-shape-type="triangle-down" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 13 8"><polygon points="0,0 13,0 6.5,8" class="shape-element" fill="#000000"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 4px; height: 28px; left: 796px; top: 210px;" data-block-id="546813e3301b422f83504473168a65c8"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 28"><rect width="4" height="28" class="shape-element" fill="#000000"></rect></svg></div></div></section><section><div class="sl-block" data-block-type="image" data-block-id="7f2eac4335025e8260ace204e798f037" style="min-width: 30px; min-height: 30px; width: 960px; height: 551.472742066721px; left: 0px; top: 74.5px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1229" data-natural-height="706" data-src="web-animations-2-3/430a684888d9cf4397af1bda3d759717.gif"></div></div></section><section data-id="7cbe2435263a648ec7c0ec2ee35dda47">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 264px;" data-block-id="98567daab3338dd76d486bda0f573c53">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(44, 57, 175);">
+<p style="text-align:left">Style / Layout</p>
+</div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 115px;" data-block-id="410cc808244b9a777a62755344f57835">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3 style="text-align:left">Paint Storm Triggers</h3>
+</div>
+</div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 264px;" data-block-id="fecfd16118ff00d544a34a8f4ed36ea6">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 91, 90);">
+<p style="text-align:left">Paint</p>
+</div>
+</div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 331px;" data-block-id="821e0d79fdcae06e87c520830f21ad03">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(19, 20, 22);">
+<p style="text-align:left">height</p>
+
+<p style="text-align:left">width</p>
+
+<p style="text-align:left">padding</p>
+
+<p style="text-align:left">font-size</p>
+
+<p style="text-align:left">etc.</p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 331px;" data-block-id="22257e9ce657250f6e567ac2e7321419">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(19, 20, 22);">
+<p style="text-align:left">background</p>
+
+<p style="text-align:left">color</p>
+
+<p style="text-align:left">border-radius</p>
+
+<p style="text-align:left">visibility</p>
+
+<p style="text-align:left">etc.</p>
+</div>
+</div></section><section class="has-dark-background" data-background-color="#141517" data-id="cd51ffa5f3b5e8b7b09f2dc186d1c79e"><video style="margin-top: 2rem;" width="800px" loop="" autoplay="" playsinline="" muted="" preload="auto" poster="https://thumbs.gfycat.com/PointlessAntiqueEeve-poster.jpg" tabindex="-1">
+    <source data-src="https://giant.gfycat.com/PointlessAntiqueEeve.webm" type="video/webm">
+    <source data-src="https://giant.gfycat.com/PointlessAntiqueEeve.mp4" type="video/mp4">
+    <source data-src="https://thumbs.gfycat.com/PointlessAntiqueEeve-mobile.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+
+    
+    
+    
+    
+    
+    </source></video></section><section data-id="a116af0b243babcf9d911dc094de3dc1"><div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 160px; top: 280px;" data-block-id="e9b01a9199996124772fc3b3401db50d"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(20, 21, 23)" data-shape-stretch="true" style="z-index: 25; opacity: 0.1;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(20, 21, 23)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 320px; top: 280px;" data-block-id="66355d9dd12b29a2a91fe7221d086f84"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(44, 57, 175)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 480px; top: 280px;" data-block-id="d47461993365b30ab4a1e54f865c1ddb"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(255, 91, 90)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 70px; left: 638px; top: 280px;" data-block-id="3e3bd7d32bdeb27e2b8af9bd48f894b4"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(93, 236, 132)" data-shape-stretch="true" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 70"><rect width="160" height="70" class="shape-element" fill="rgb(93, 236, 132)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 56px; left: 212px; top: 385px;" data-block-id="41bf307595c42b7f646007e9cf76f780"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(20, 21, 23); opacity: 0.1;">
+<p>JS</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 310px; top: 385px;" data-block-id="36b94b71dc93206a575fa582ead1ae48"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(44, 57, 175);">
+<p>Style/Layout</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 470px; top: 385px;" data-block-id="dbb12b3f8aa81bdfee86c42f91bc1d58"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(255, 91, 90);">
+<p>Paint</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 180px; left: 630px; top: 385px;" data-block-id="8998090a6a7691cbe2e60f9fe1e1389a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(93, 236, 132);">
+<p>Composite</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 480px; top: 280px;" data-block-id="d2438cbca28f19e3867b5f096bd05ce6"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(44, 57, 175)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(44, 57, 175)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 638px; top: 280px;" data-block-id="c532b44c2f7e0b78755966e595c0c936"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(255, 91, 90)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(255, 91, 90)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 160px; height: 4px; left: 638px; top: 210px;" data-block-id="796d24ca13876b36b03b63abe1057974"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 160 4"><rect width="160" height="4" class="shape-element" fill="#000000"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 17px; height: 70px; left: 320px; top: 280px;" data-block-id="24c7907c4467f9f2ae7c7c8a4b853339"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(232, 232, 232)" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 17 70"><polygon points="17,35 0,70 0,0" class="shape-element" fill="rgb(232, 232, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 4px; height: 28px; left: 636px; top: 210px;" data-block-id="2a5e015163065d60b41fc505ef749415"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 28"><rect width="4" height="28" class="shape-element" fill="#000000"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 12.5px; height: 8px; left: 632px; top: 238px;" data-block-id="4cb84acb8821651ea31ccb96a3eb22e4"><div class="sl-block-content" data-shape-type="triangle-down" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 13 8"><polygon points="0,0 13,0 6.5,8" class="shape-element" fill="#000000"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 4px; height: 28px; left: 794px; top: 210px;" data-block-id="176a99b99bd938e11e15650bdc38b127"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 28"><rect width="4" height="28" class="shape-element" fill="#000000"></rect></svg></div></div></section><section data-id="f4ffb689264f1fff136fbfdcaf18b31e">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 264px;" data-block-id="f58418e24300475dfc3c612c4230ba8b">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(44, 57, 175);">
+        <p style="text-align:left">
+            <a class="blue" href="http://codepen.io/ryanmclaughlin/debug/25b8a8afc5dc571e993440ef3ef431b3" target="_blank">Transform</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 115px;" data-block-id="5d81150053c93c929bbfd03e413cbe12">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h3 style="text-align:left">Safe Properties</h3>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 264px;" data-block-id="3af006c78231e6018b9de0c51a1f47bf">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 91, 90);">
+        <p style="text-align:left">
+            <a href="http://codepen.io/ryanmclaughlin/debug/fc1501806d16d982412fad116af985e4" target="_blank">Opacity</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 331px;" data-block-id="49e006f3dbe25792db48696f3bfac2e5">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(19, 20, 22);">
+<p style="text-align:left">rotate()</p>
+
+<p style="text-align:left"><span style="color:rgb(19, 20, 22); text-align:left">scale()</span></p>
+
+<p style="text-align:left">translate()</p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 331px;" data-block-id="5f092ccc4ef438667e3f947880cfa428">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(19, 20, 22);">
+        <p style="text-align:left">opacity: 0...1</p>
+    </div>
+</div></section><section class="has-light-background" data-background-color="#e8eaf0"><div class="sl-block" data-block-type="text" style="height: auto; width: 664px; left: 148px; top: 218px;" data-block-id="3f8a92cea778df8e9b1d471bae471e39"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 91, 90); font-size: 260%;">
+<p>Less work = Performance </p>
+</div></div></section></section><section class="stack" data-id="6451ae102fb53d0719b9bffc153fc824"><section data-id="37691d5f65520b4ac7e0076f992ec40a"><div class="sl-block" data-block-type="text" style="height: auto; width: 757px; left: 80px; top: 141px;" data-block-id="8693a92b77f3d0518185805da670feb1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:56px">CSS transition vs requestAnimationFrame?</span></p>
+</div></div></section><section data-id="12e9415afa178ffc8fa74f5b3e974b58"><div class="sl-block" data-block-type="image" data-block-id="e86cada9f28583fd354d66f04bbcbda1" style="min-width: 30px; min-height: 30px; width: 960px; height: 540px; left: 0px; top: 80px;"><div class="sl-block-content" style="z-index: 11;"><img style="visibility: visible;" data-natural-width="960" data-natural-height="540" data-src="web-animations-2-3/29084fb9bf490d58cc33f262fba60e8c.png"></div></div></section><section data-id="efb81ed4206e3d5f11be17d217e6a0c5"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 256px;" data-block-id="f8ee605be94c2d3c50274c566acb97f7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">If you need the control of JavaScript (stop, start, on scroll), </span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="b5924b73cfb8a7f3e90f3167277d41ab" style="height: auto; min-width: 30px; min-height: 30px; width: 522px; left: 174px; top: 298px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 91, 90);" dir="ui">
+<p style="text-align:left"><a href="http://codepen.io/ryanmclaughlin/pen/49ecaae9b0e4322b36f73690b21b7eab?editors=001" target="_blank">best to use requestAnimationFrame</a></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="66afc7626136ec631639047f72f09a18" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 401px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align: left;"><a href="https://github.com/Genentech/helix-cup/pull/290" target="_blank">Before, After</a></p>
+</div></div></section></section><section class="stack" data-id="7e5bd68e45f9c678bf85cdbe54544224"><section data-id="ef9c3c464aad6b272fc879195a33fe14"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 140px;" data-block-id="dcf938b5452f081b23bb78b69093d0ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:48px">How can we leverage animations to make our digital products more human-centric? What are some examples that succeed at this?</span></p>
+</div></div></section><section class="has-dark-background" data-background-size="cover" data-background-image="web-animations-2-3/008dc8ed9ef2a5c2eb62a2cc5e4cabb4.jpg" data-background-color="#2c39af" data-id="66c645790843031e2e36eb02e9c72f98"><div class="sl-block" data-block-type="image" data-block-id="b64482f6e4263638fc4999082f2e80fa" style="min-width: 30px; min-height: 30px; width: 278px; height: 300px; left: 341px; top: 200px;"><div class="sl-block-content" style="z-index: 11;"><img style="visibility: visible;" data-natural-width="834" data-natural-height="900" data-src="web-animations-2-3/54fe68e5c5dba09a822c346f54a39052.jpg"></div></div></section><section class="has-dark-background" data-background-color="#2c39af" data-id="10ae8c5a5534d77bcefadb1ebdbbd91d"><div class="sl-block" data-block-type="text" data-block-id="b0f1d1f66cd5d25868ffb3de79d1a1fd" style="height: auto; min-width: 30px; min-height: 30px; width: 376px; left: 199px; top: 150px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);" dir="ui">
+<p style="text-align:left">PRINCIPLES OF ANIMATION</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="cfeacdd8cb73bd44b585461a19824ed9" style="height: auto; min-width: 30px; min-height: 30px; width: 140px; left: 76px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 91, 90);" dir="ui">
+<h1 style="text-align:left"><strong><span style="font-size:128px">12</span></strong></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="81f550776812d178e040b288e2e1511f" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 80px; top: 310px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="0">
+<p>Squash &amp; Stretch</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 80px; top: 354px;" data-block-id="965deca1d146af095c12fd9591db74ec"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="1">
+<p>Anticipation</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 80px; top: 400px;" data-block-id="94f1dd4fe49a7fa4ab7fe6f64b4afd45"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="2">
+<p>Staging</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 80px; top: 446px;" data-block-id="d3645d5906caadb0f3e4b61ec8e8446a"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="3">
+<p>Straight Ahead &amp; Pose to Pose</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 455px; left: 80px; top: 492px;" data-block-id="8238b48a0ce680766cb45e939fa08805"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="4">
+<p>Follow Through &amp; Overlapping Action</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 80px; top: 538px;" data-block-id="0cb3aa2dd1a83545877806edb492466e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="5">
+<p>Slow Out &amp; Slow In</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 310px;" data-block-id="f2d24cffd0b6bf7ce727669ad6e33da5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="6">
+<p>Arcs</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 354px;" data-block-id="b3ef74fca5ef9b64068b1a7ff2e4fd0a"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="7">
+<p>Secondary Action</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 400px;" data-block-id="85e6dcbf745a1931705634b0c8b3a736"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="8">
+<p>Timing</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 446px;" data-block-id="eb1b54e76b3549c4ea6a290c45f1eb44"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="9">
+<p>Exaggeration</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 492px;" data-block-id="d6a9b136e69b6ba26d8d0ae58f5e4a8e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="10">
+<p>Solid Drawing</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 260px; left: 620px; top: 538px;" data-block-id="c249f6dc7be098db3bd28aa4452a0e63"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; color: rgb(255, 255, 255); text-align: left;" dir="ui" data-fragment-index="11">
+<p>Appeal</p>
+</div></div></section><section class="has-light-background" data-background-color="#ffffff" data-id="5f113f52ff063298590f5f5be480dcbb"><div class="sl-block" data-block-type="image" data-block-id="e0e3e357a9b8d77413210ab9021d7587" style="min-width: 30px; min-height: 30px; width: 271.942446043166px; height: 300px; left: 344px; top: 200px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="252" data-natural-height="278" style="visibility: visible;" data-src="web-animations-2-3/fd0b5b6d6ef967c5903782e4c04b0b3c.gif"></div></div></section><section class="has-light-background" data-background-color="#ededed" data-id="c005c192bf4d59c4c0da31ad30fcb221"><video crossorigin="anonymous" preload="metadata" loop="" tabindex="0" controls="" muted="" autoplay="autoplay" controls="controls">
+    <source src="https://ryanmack.me/_assets/misc/do.mp4" type="video/mp4">
+    </source></video>
+    <video crossorigin="anonymous" preload="metadata" loop="" tabindex="0" autoplay="autoplay" controls="controls" muted="">
+        <source src="https://ryanmack.me/_assets/misc/dont.mp4" type="video/mp4">
+        </source></video>
+        <div class="sl-block" data-block-type="text" data-block-id="939a582730839f846f7ba575168521ac" style="height: auto; min-width: 30px; min-height: 30px; width: 60px; left: 850px; top: 171px;">
+            <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+                <p>Do</p>
+            </div>
+        </div>
+        <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 86px; left: 837px; top: 540.5px;" data-block-id="01fa870346dbb3a232145aa4881bac15">
+            <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+                <p>Don't</p>
+            </div>
+        </div></section><section data-id="e6aa96693ae8d6a600fcf63e1cb61768">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 264px;" data-block-id="25d1570c1e57ae1f60457e07b8550450">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(44, 57, 175);">
+<p style="text-align:left">Functional</p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 80px; top: 115px;" data-block-id="18ec7b1d166fc5cee0a6955473bf4e58">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3 style="text-align:left">Two kinds of UI Animations</h3>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 264px;" data-block-id="dd5b900dcd0e5adcced080f083ac68a3">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 91, 90);">
+<p style="text-align:left">Presentational</p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 331px;" data-block-id="bcc2663c6ff5b07f93a4d622a4c223ac">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(19, 20, 22);">
+<p style="text-align:left">Improve usability</p>
+
+<p style="text-align:left">Clarify use</p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 331px;" data-block-id="55878b8a86888abbc9cf933286d218c2">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(19, 20, 22);">
+<p style="text-align:left">Personality</p>
+
+<p style="text-align:left">Joy and delight</p>
+
+<p style="text-align:left">Reinforce a feeling</p>
+</div>
+</div></section><section data-id="d44ed3c1f3e684252a934f3c1a08b299"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="63187232aa3beaed5bad70fe292e9a4c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><a href="http://framerjs.com/examples/preview/#paper-photozoom.framer" target="_blank">Photo Zoom</a></p>
+</div></div></section><section><div class="sl-block" data-block-type="shape" data-block-id="eeb8592a7c4ce02e1a2c6dc90873a46f" style="min-width: 4px; min-height: 4px; width: 300px; height: 300px; left: 330px; top: 200px;">
+    <div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="false" style="z-index: 11;">
+        <video src="web-animations-2-3/04e38ec7c5b7c97afa6af84a08aa894c.mp4" width="220" height="250" autoplay="autoplay" controls="" loop="loop" preload="auto" muted=""></video>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 300 300"><rect width="300" height="300" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg>
+    </div>
+</div></section><section data-id="f4d3f8a4ed7286e2bdec46c0ee660039"><div class="sl-block" data-block-type="image" data-block-id="a51ec30ff8c6720f01f87408cba3f319" style="min-width: 30px; min-height: 30px; width: 638px; height: 370.951428571429px; left: 161px; top: 165px;"><div class="sl-block-content" style="z-index: 11;"><img style="visibility: visible;" data-natural-width="700" data-natural-height="407" data-src="web-animations-2-3/7f6e265535bf91ab3ba6a485edfc2b93.gif"></div></div></section><section class="has-light-background" data-background-color="#90c25b" data-id="018be86641b858261932a6460274500d"><div class="sl-block" data-block-type="image" data-block-id="28727c351c4f7dc02ad810a3101ed287" style="min-width: 30px; min-height: 30px; width: 242px; height: 195.392592592593px; left: 359px; top: 252.5px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="270" data-natural-height="218" style="visibility: visible;" data-src="web-animations-2-3/021c5deb9262bb81de91e872d610b1f3.gif"></div></div></section></section><section class="stack" data-id="33512f2063affa2b5a6f498d18e01bda"><section data-id="e663708d6eee7c807d556db33486bc6e"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 140px;" data-block-id="fe6f92c9c32bdfa625112ea8bc993aa7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:48px; line-height:62.4000015258789px">Transitions vs Keyframes?</span></p>
+</div></div></section><section data-id="016641e04cc9e3864431245a9a458282"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 190px;" data-block-id="03f8f8ebad3eb966d7ab56adf4894a33"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">Transition has two keyframes</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 303px;" data-block-id="763474312fb5a3d6663dd76257e0f2bf"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(27, 39, 148);">
+<p style="text-align:left">.button {<br>
+    color: #1b2794;<br>
+}</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 303px;" data-block-id="663e29f7703cc3154a78301c2ab4b9b8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 91, 90);">
+<p style="text-align:left">.button:hover {<br>
+    color: #ff5b5a;<br>
+}</p>
+</div></div></section><section data-id="74ed4bf629723b4ee713042532437e9a"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 190px;" data-block-id="d17048c576562339ba44a1388bbe8714"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:32px"><span style="text-align:left">Keyframes can have </span></span>∞*</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 80px; top: 280px;" data-block-id="344385264c86db59ebe65227defb21bc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(27, 39, 148);">
+<p style="color:rgb(27, 39, 148); text-align:left"><span>@keyframes bounce {</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    from { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    to { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>}</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 80px; top: 591px;" data-block-id="09c5307650f5bbd178976c715b1ea775"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(20, 21, 23);">
+<p style="text-align:left"><span style="font-size:16px">* as much memory as your computer can handle</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 480px; top: 280px;" data-block-id="e805c621ab4a1f8c31e80353201075e7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(27, 39, 148);">
+<p style="text-align:left">@keyframes bounce {</p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    0% { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    10% { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    77% { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>    100% { ... }</span></p>
+
+<p style="color:rgb(27, 39, 148); text-align:left"><span>}</span></p>
+</div></div></section><section class="has-dark-background" data-background-color="#141517" data-id="413f61f12e2944944b0b6d9662118f8d"><div class="sl-block" data-block-type="iframe" data-block-id="ebc48d40af31b5034844bd3ddbadcecb" style="min-width: 30px; min-height: 30px; width: 360px; height: 300px; left: 300px; top: 200px;"><div class="sl-block-content" style="z-index: 11;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock" data-src="//codepen.io/ryanmclaughlin/embed/yJshw/?height=300&amp;theme-id=11441"></iframe></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="1ff61eb9ad0de8f8704f1e810450ff0d" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 521px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="https://s.codepen.io/ryanmclaughlin/debug/yJshw" target="_blank">Whiskey Ice</a></p>
+</div></div></section></section><section class="stack" data-id="397dd0eb5dc73dd1c528c6ae3d584ccf"><section data-id="e4d402d1d51985d049be3f897d830181"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 140px;" data-block-id="f47339fe3ef327cd66497a30591e4cb5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left; color: rgb(44, 57, 175);" dir="ui">
+<p><span style="font-size:48px">New ground: SVG</span></p>
+</div></div></section><section class="has-light-background" data-background-color="#ff5b5a" data-id="764b2b86fa34e0f26bab59e66a354cda"><div class="sl-block" data-block-type="iframe" data-block-id="c82636a74fe1aa5c7ae55f94727a36d5" style="min-width: 30px; min-height: 30px; width: 960px; height: 595px; left: 0px; top: 0px;">
+    <div class="sl-block-content" style="z-index: 11;">
+        <iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock" data-src="//codepen.io/ryanmclaughlin/embed/07b5d742ea45534be46455d5f6816d4b/?height=590&amp;theme-id=11441"></iframe>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" data-block-id="69f783f22bf7175c3b668c82707b423d" style="height: auto; min-width: 30px; min-height: 30px; width: 480px; left: 240px; top: 427px;">
+    <div class="sl-block-content blue" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(44, 57, 175);">
+        <p>
+            <a class="blue" href="http://codepen.io/ryanmclaughlin/pen/26bfcf6bd3bc6b789014752c77f2b98f?editors=100" target="_blank">Code</a>
+        </p>
+    </div>
+</div></section></section><section data-id="50b1ee9bee48a9ccba7857b328ec49fb">
+<div class="sl-block" data-block-type="text" data-block-id="a2e2f039afce98524ae0ac4abbace404" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 80px; top: 264px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(19, 20, 22);">
+        <p style="text-align:left">JavaScript</p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" data-block-id="ccac1e69a4f8bc5abc0fc26e7dfa4565" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 80px; top: 331px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 91, 90);">
+        <p style="text-align:left">
+            <a href="http://greensock.com" target="_blank">GSAP</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 80px; top: 370px;" data-block-id="4be032b44ca56cbd347c15ae204475d7">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 91, 90);">
+        <p style="text-align:left">
+            <a href="https://animejs.com" target="_blank">animejs</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 80px; top: 409px;" data-block-id="c6551e7121322cfe3d4419a70b2919f7">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 91, 90);">
+        <p style="text-align:left">
+            <a href="https://mojs.github.io/" target="_blank">mo.js</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" data-block-id="655f82731434c9a5eadf73fa234d3bd2" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 115px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+        <h3 style="text-align:left">Some Frameworks</h3>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 80px; top: 448px;" data-block-id="c16d09a29b689c0f8679e9fbc6f8b286">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(255, 91, 90);" dir="ui">
+<p style="text-align:left"><a href="https://github.com/bendc/animateplus" target="_blank">animateplus</a></p>
+</div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 480px; top: 264px;" data-block-id="4592cb87a7a7de41b349043ce78645df">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(19, 20, 22);">
+        <p style="text-align:left">CSS</p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 480px; top: 331px;" data-block-id="7a3b2daa06888202c986adf52faaaef3">
+    <div class="sl-block-content blue" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; color: rgb(42, 52, 178);" dir="ui">
+        <p style="text-align:left">
+            <a href="http://anicollection.github.io/" class="blue" target="_blank">AniCollection</a>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 480px; top: 370px;" data-block-id="015b99a76cf5892fd54d8d8c9c5022f5">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; color: rgb(42, 52, 178);" dir="ui">
+        <p style="text-align:left">
+            <a href="http://daneden.github.io/animate.css" class="blue" target="_blank">Animate.css</a>
+        </p>
+    </div>
+</div></section><section class="has-light-background" data-background-color="#e8eaf0"><div class="sl-block" data-block-type="text" style="height: auto; width: 664px; left: 148px; top: 249px;" data-block-id="f78a31977394b49a80305040f492711f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 91, 90); font-size: 260%;">
+<p>Thank you.</p>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1562611,"slug":"web-animations-2-3","title":"Copy of Web Animations","description":"An overview of animations on the web with performance in mind.","width":960,"height":700,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/secure/0658c2/decks.jpg","view_count":0,"user":{"id":296051,"username":"ryanmack","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/39c7529a5c67d83e3a8a7087533890c8?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":true,"lite":false,"team_id":363,"settings":{"id":123933,"present_controls":false,"present_upsizing":false,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"enterprise":true,"membership":{"role":"owner","manager":true,"activated":true}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"league","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":53,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":null,"data_updated_at":1563842223694,"font_typekit":null,"font_google":null,"time_limit":null,"upsizing_enabled":null,"notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				maxScale: 1,
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js' },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
