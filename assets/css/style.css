@@ -6757,30 +6757,30 @@ code {
   font-style: bold;
   font-weight: 700;
   font-display: swap;
-  src: url(/_assets/fonts/Vulf_Sans-Bold.woff2) format("woff2"),
-    url(/_assets/fonts/Vulf_Sans-Bold.woff) format("woff"),
-    url(/_assets/fonts/Vulf_Sans-Bold.ttf) format("truetype");
+  src: url(/assets/fonts/Vulf_Sans-Bold.woff2) format("woff2"),
+    url(/assets/fonts/Vulf_Sans-Bold.woff) format("woff"),
+    url(/assets/fonts/Vulf_Sans-Bold.ttf) format("truetype");
 }
 @font-face {
   font-family: "Vulf Sans Regular";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/_assets/fonts/Vulf_Sans-Regular.woff2) format("woff2"),
-    url(/_assets/fonts/Vulf_Sans-Regular.woff) format("woff"),
-    url(/_assets/fonts/Vulf_Sans-Regular.ttf) format("truetype");
+  src: url(/assets/fonts/Vulf_Sans-Regular.woff2) format("woff2"),
+    url(/assets/fonts/Vulf_Sans-Regular.woff) format("woff"),
+    url(/assets/fonts/Vulf_Sans-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: apercu-mono-regular-pro;
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url(/_assets/fonts/apercu-mono-regular-pro.eot);
-  src: url(/_assets/fonts/apercu-mono-regular-pro.eot?#iefix)
+  src: url(/assets/fonts/apercu-mono-regular-pro.eot);
+  src: url(/assets/fonts/apercu-mono-regular-pro.eot?#iefix)
       format("embedded-opentype"),
-    url(/_assets/fonts/apercu-mono-regular-pro.woff2) format("woff2"),
-    url(/_assets/fonts/apercu-mono-regular-pro.woff) format("woff"),
-    url(/_assets/fonts/apercu-mono-regular-pro.ttf) format("truetype");
+    url(/assets/fonts/apercu-mono-regular-pro.woff2) format("woff2"),
+    url(/assets/fonts/apercu-mono-regular-pro.woff) format("woff"),
+    url(/assets/fonts/apercu-mono-regular-pro.ttf) format("truetype");
 }
 html {
   font-size: 16px;
