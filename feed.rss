@@ -5,7 +5,7 @@
   <link>https:&#x2F;&#x2F;ryanmack.me</link>
   <description>The feed of updates to 's blog.</description>
   <updated>Tue, 22 Sep 2015 00:00:00 GMT</updated>
-  <id>https:&#x2F;&#x2F;ryanmack.me</id>
+  <id>https:&#x2F;&#x2F;jijothic.github.io</id>
   <author>
   <name></name>
   </author>
@@ -32,8 +32,8 @@
   </item>
   <item>
     <title>Sass Animation Delays</title>
-    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;sass-animation-delays</link>
-    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;sass-animation-delays</guid>
+    <link>https:&#x2F;&#x2F;jijothic.github.io&#x2F;sass-animation-delays</link>
+    <guid>https:&#x2F;&#x2F;jijothic.github.io&#x2F;sass-animation-delays</guid>
     <pubDate>Wed, 02 Sep 2015 00:00:00 +0000</pubDate>
     <description>
 &lt;p&gt;Here’s a quick and easy way to delay animations between elements by using a Sass &lt;code&gt;@for&lt;&#x2F;code&gt; loop.&lt;&#x2F;p&gt;
@@ -55,8 +55,8 @@ See the Pen &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughli
   </item>
   <item>
     <title>Blot Variables</title>
-    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;blot-variables</link>
-    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;blot-variables</guid>
+    <link>https:&#x2F;&#x2F;jijothic.github.io&#x2F;blot-variables</link>
+    <guid>https:&#x2F;&#x2F;jijothic.github.io&#x2F;blot-variables</guid>
     <pubDate>Fri, 28 Aug 2015 04:57:25 +0000</pubDate>
     <description>
 &lt;p&gt;I use and love &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;blot.im&quot;&gt;blot.im&lt;&#x2F;a&gt; for my site. Not all of the variables are in the documentation quite yet, so &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;llllll.li&#x2F;&quot;&gt;David Merfield&lt;&#x2F;a&gt; has kindly provided me with a complete list of them. I’ll probably delete this as the documentation is updated.&lt;&#x2F;p&gt;
@@ -69,8 +69,8 @@ See the Pen &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughli
   </item>
   <item>
     <title>CSS Truncation Mixin</title>
-    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;css-truncation-mixin</link>
-    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;css-truncation-mixin</guid>
+    <link>https:&#x2F;&#x2F;jijothic.github.io&#x2F;css-truncation-mixin</link>
+    <guid>https:&#x2F;&#x2F;jijothic.github.io&#x2F;css-truncation-mixin</guid>
     <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
     <description>
 &lt;p&gt;I want a be-all and end-all &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; solution for text truncation on the web. I’ve lost count of how many times I’ve come across projects where I’ve done this same thing over and over. Some solutions were good, some bad; some Javascript, some &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt;.&lt;&#x2F;p&gt;
@@ -127,8 +127,8 @@ See the Pen &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;codepen.io&#x2F;ryanmclaughli
   </item>
   <item>
     <title>Quick Measure</title>
-    <link>https:&#x2F;&#x2F;ryanmack.me&#x2F;quick-measure</link>
-    <guid>https:&#x2F;&#x2F;ryanmack.me&#x2F;quick-measure</guid>
+    <link>https:&#x2F;&#x2F;jijothic.github.io&#x2F;quick-measure</link>
+    <guid>https:&#x2F;&#x2F;jijothic.github.io&#x2F;quick-measure</guid>
     <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
     <description>
 &lt;p&gt;Most of us are familiar with the 60-75 character long measure for a readable web. There are many ways to implement this, but when I’m prototyping something and probably using a non-standard font, I like to use the &lt;code&gt;ch&lt;&#x2F;code&gt; &lt;span class&#x3D;&quot;small-caps&quot;&gt;CSS&lt;&#x2F;span&gt; unit to get some decent line length for paragraphs of text.&lt;&#x2F;p&gt;
