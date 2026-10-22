@@ -101,7 +101,11 @@
     <main class="ph35 ph4-s center tc mt6 mt7-s">
       <h1 class="f1 f-subheadline-s lh-solid lh-title-s">Say hello.</h1>
 
-      <form class="tl flex flex-column measure-narrow-s center">
+      <form
+        class="tl flex flex-column measure-narrow-s center"
+        action="https://formspree.io/f/moeeajko"
+        method="POST"
+      >
         <fieldset class="bn ma0 pa0">
           <label class="mb2 db" for="name">Your email:</label>
           <input
@@ -167,7 +171,6 @@
         </div>
       </div>
 
-      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script>
         const form = document.querySelector("form");
         const formSuccess = document.querySelector(".form-response-success");
@@ -181,16 +184,14 @@
           form
             .querySelector("[type=submit]")
             .setAttribute("value", "Sending...");
-          const email = form.querySelector("[name=email]").value;
-          const message = form.querySelector("[name=message]").value;
-          const data = { email, message, time: new Date().getTime() };
 
-          axios
-            .post(
-              "https://us-central1-myfunctions-4e8c3.cloudfunctions.net/submit",
-              data
-            )
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          })
             .then((res) => {
+              if (!res.ok) throw new Error("Form submission failed");
               console.log("success!");
               hideForm();
               formSuccess.style.display = "block";
