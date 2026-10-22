@@ -119,6 +119,39 @@
         margin-bottom: 0.5rem;
       }
 
+      .hero-kicker {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .hero-video {
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 0 0 3rem;
+      }
+
+      .hero-video video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .stats-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        text-align: center;
+        margin: 0 0 1rem;
+      }
+
+      .stats-row .highlight {
+        flex: 1 1 0;
+        margin: 0;
+        background: transparent;
+      }
+
       .work-section {
         margin: 4rem 0;
       }
@@ -252,6 +285,11 @@
           padding: 2rem 0 1rem;
         }
 
+        .stats-row {
+          flex-direction: column;
+          text-align: center;
+        }
+
         .work-section {
           margin: 2rem 0;
         }
@@ -287,64 +325,33 @@
             </a>
           </div>
 
-          <div class="start-5 span-7">
-            <h1 class="f2 lh-title ma0">Zigzag</h1>
-            <p class="f2 lh-title ma0 grey-text">Puppy parenting, guided</p>
+          <div class="span-full hero-kicker">
+            <h1 class="f1 lh-title ma0">Zigzag</h1>
+            <p class="f2 lh-title ma0 grey-text">The #1 puppy training app, built sprint by sprint</p>
           </div>
 
-          <div class="span-full">
-            <div class="image-wrap">
-              <img src="/assets/cases/Zigzag/63cffa37ec70344cf281ec44_Zigzag_case_01-p-1600.webp" alt="Zigzag puppy training app hero image" />
+          <div class="span-full hero-video">
+            <video autoplay loop muted playsinline>
+              <source src="/assets/cases/Zigzag/Zigzag.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="span-full stats-row">
+            <div class="highlight">
+              <p class="highlight__title f3 ma0">Zigzag</p>
+              <p class="f6 ma0">Client</p>
             </div>
-          </div>
-
-          <div class="start-1 span-2">
-            <p class="f6 mb2">
-              <span class="grey-text">Client:</span> Zigzag
-            </p>
-            <p class="f6 mb2">
-              <span class="grey-text">Timespan:</span> 18 months
-            </p>
-            <p class="f6 mb2">
-              <span class="grey-text">Key Focus:</span> App Design
-            </p>
-          </div>
-
-          <div class="start-5 span-6">
-            <p class="f4 lh-copy ma0">
-              No one gets a puppy because it's so much work. You get one because it's so cute - but raising a dog isn't something that happens overnight, it's a process of ups and downs. Zigzag guides new owners through the entire journey, and makes it fun too. Even when he poops on the carpet for the third time.
-            </p>
-          </div>
-
-          <!-- Highlights -->
-          <div class="highlight start-5 span-2">
-            <p class="highlight__title f3 ma0">#1</p>
-            <p class="f6 ma0">Puppy training app in the UK</p>
-          </div>
-
-          <div class="highlight start-8 span-2">
-            <p class="highlight__title f3 ma0">1M+</p>
-            <p class="f6 ma0">Downloads to date</p>
-          </div>
-
-          <div class="highlight start-5 span-2">
-            <p class="highlight__title f3 ma0">App of the Day</p>
-            <p class="f6 ma0">UK App Store</p>
-          </div>
-
-          <div class="highlight start-8 span-2">
-            <p class="highlight__title f3 ma0">18 mo.</p>
-            <p class="f6 ma0">In-house design partnership</p>
-          </div>
-
-          <div class="span-full">
-            <div class="tag-wrapper">
-              <span class="tag-pill">App</span>
-              <span class="tag-pill">Website</span>
-              <span class="tag-pill">UX Design</span>
-              <span class="tag-pill">UX Research</span>
-              <span class="tag-pill">Design System</span>
-              <span class="tag-pill">Web Development</span>
+            <div class="highlight">
+              <p class="highlight__title f3 ma0">#1</p>
+              <p class="f6 ma0">Puppy training app in the UK</p>
+            </div>
+            <div class="highlight">
+              <p class="highlight__title f3 ma0">1M+</p>
+              <p class="f6 ma0">App downloads</p>
+            </div>
+            <div class="highlight">
+              <p class="highlight__title f3 ma0">App of the Day</p>
+              <p class="f6 ma0">App Store</p>
             </div>
           </div>
         </div>
@@ -355,29 +362,52 @@
         <div class="case-grid">
           <div class="start-1 span-5">
             <p class="f3 lh-title ma0">What we did</p>
+            <div class="tag-wrapper">
+              <span class="tag-pill">App</span>
+              <span class="tag-pill">Website</span>
+              <span class="tag-pill">UX Design</span>
+              <span class="tag-pill">UX Research</span>
+              <span class="tag-pill">Design system</span>
+              <span class="tag-pill">Web development</span>
+            </div>
           </div>
           <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
-              We helped Zigzag as an in-house design team with the app for 18 months. In bi-weekly sprints, we made the app slightly better each time, through design choices grounded in analytics and interviews with real users. We also made sure the cheerful branding was palpable in every corner of the app - not just the splash screen.
+              No one gets a puppy because it's so much work. You get one because it's so cute! But raising a dog isn't something that happens overnight. It's a process of ups and downs. Zigzag guides you through the entire journey, and makes it fun too. Even when he poops on the carpet for the third time.
+              <br /><br />
+              We helped Zigzag as an in-house design team with the design of the app for 18 months. In bi-weekly sprints, we made the app slightly better each time, through design choices based on analytics and interviews with users.
+              <br /><br />
+              We also ensured that the cheerful branding was palpable in every corner of the app.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Two Column Media -->
+      <!-- Single image -->
+      <section class="work-section">
+        <div class="case-grid">
+          <div class="span-full">
+            <div class="image-wrap">
+              <img src="/assets/cases/Zigzag/63cffa37ec70344cf281ec44_Zigzag_case_01-p-1600.webp" alt="Zigzag puppy training app screens" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Double image -->
       <section class="work-section">
         <div class="case-grid">
           <div class="two-column-media span-full">
             <div class="image-wrap">
               <img
-                src="/assets/cases/Zigzag/63cffa37107920ea5ccc9cff_Zigzag_case_02-p-800.webp"
-                alt="Zigzag app onboarding screens"
+                src="/assets/cases/Zigzag/65f354c97e84860a6db6ad83_Zigzag%20-%20Patrick-p-1080.webp"
+                alt="Zigzag team member"
               />
             </div>
             <div class="image-wrap">
               <img
-                src="/assets/cases/Zigzag/63cffa36af1b80666e59473a_Zigzag_case_04-p-1600.webp"
-                alt="Zigzag app training journey screens"
+                src="/assets/cases/Zigzag/63cffa3674cfa11a6ad94b8f_Zigzag_case_06-p-800.webp"
+                alt="Zigzag app completion screen"
               />
             </div>
           </div>
@@ -385,66 +415,6 @@
       </section>
 
       <div class="divider case-grid"><div class="span-full"></div></div>
-
-      <!-- Branding -->
-      <section class="work-section">
-        <div class="case-grid">
-          <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Cheerful branding, everywhere</p>
-          </div>
-          <div class="start-5 span-6">
-            <p class="f4 lh-copy ma0">
-              Raising a puppy is stressful enough without an app that feels clinical. Every screen, from empty states to error messages, was designed to feel like a friendly voice cheering the owner on - warm illustration, playful copy, and a design system built to scale as the product grew.
-            </p>
-          </div>
-          <div class="span-full">
-            <div class="image-wrap">
-              <img src="/assets/cases/Zigzag/63cffa36d599a5452a10c5af_Zigzag_case_05-p-1080.webp" alt="Zigzag cheerful in-app branding" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Two column screens -->
-      <section class="work-section">
-        <div class="case-grid">
-          <div class="span-6">
-            <div class="image-wrap">
-              <img src="/assets/cases/Zigzag/63cffa3674cfa11a6ad94b8f_Zigzag_case_06-p-800.webp" alt="Zigzag daily training plan screen" />
-            </div>
-          </div>
-          <div class="span-6">
-            <div class="image-wrap">
-              <img src="/assets/cases/Zigzag/63cffa37fde086e29aff552a_Zigzag_case_07-p-1600.webp" alt="Zigzag progress tracking screen" />
-            </div>
-          </div>
-          <div class="start-1 span-5">
-            <p class="f5 lh-copy ma0 grey-text">
-              A daily training plan that adapts to the puppy's age and breed, and a progress tracker that turns small wins - a clean walk, a full night's sleep - into visible momentum.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="divider case-grid"><div class="span-full"></div></div>
-
-      <!-- Product in motion -->
-      <section class="work-section">
-        <div class="case-grid">
-          <div class="span-full">
-            <div class="image-wrap">
-              <video autoplay loop muted playsinline>
-                <source src="/assets/cases/Zigzag/Zigzag.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div class="start-7 span-5">
-            <p class="f5 lh-copy ma0">
-              A walkthrough of the day-to-day flow - from the first day home to the first trick landed - designed so new owners never feel lost about what to do next.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <!-- Results -->
       <section class="work-section">
@@ -481,6 +451,64 @@
                 <p class="quote-card__author">Ifeete84 · App store review</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Single image -->
+      <section class="work-section">
+        <div class="case-grid">
+          <div class="span-full">
+            <div class="image-wrap">
+              <img src="/assets/cases/Zigzag/63cffa36af1b80666e59473a_Zigzag_case_04-p-1600.webp" alt="Zigzag app training steps and feedback screen" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Double image -->
+      <section class="work-section">
+        <div class="case-grid">
+          <div class="two-column-media span-full">
+            <div class="image-wrap">
+              <img
+                src="/assets/cases/Zigzag/63cffa36d599a5452a10c5af_Zigzag_case_05-p-1080.webp"
+                alt="Zigzag campaign illustration"
+              />
+            </div>
+            <div class="image-wrap">
+              <img
+                src="/assets/cases/Zigzag/63cffa37107920ea5ccc9cff_Zigzag_case_02-p-800.webp"
+                alt="Woman smiling with her puppy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Single image -->
+      <section class="work-section">
+        <div class="case-grid">
+          <div class="span-full">
+            <div class="image-wrap">
+              <img src="/assets/cases/Zigzag/63cffa37fde086e29aff552a_Zigzag_case_07-p-1600.webp" alt="Zigzag food portion calculator and personalised training overview" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider case-grid"><div class="span-full"></div></div>
+
+      <!-- CTA -->
+      <section class="work-section">
+        <div class="case-grid">
+          <div class="start-1 span-5">
+            <p class="f3 lh-title ma0">Want to turn your users into advocates too?</p>
+          </div>
+          <div class="start-5 span-6">
+            <p class="f6 ma0">
+              <a href="/hello.html" class="black">Get in touch with George →</a>
+            </p>
           </div>
         </div>
       </section>
