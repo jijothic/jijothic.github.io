@@ -16,7 +16,7 @@
       href="/assets/img/favicon.png"
       sizes="16x16"
     />
-    <title>Handled – Branding &amp; website | George Kibaru</title>
+    <title>Handled – Brand, website &amp; product design | George Kibaru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="End-to-end brand and product design for Handled, a more human approach to employee onboarding and offboarding. A case study by George Kibaru" />
     <meta name="twitter:card" content="summary" />
@@ -27,7 +27,7 @@
       name="twitter:title"
       property="og:title"
       itemprop="title name"
-      content="Handled - Branding & website"
+      content="Handled - Brand, website & product design"
     />
     <meta
       name="twitter:description"
@@ -138,18 +138,21 @@
       }
 
       .stats-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
         text-align: center;
         margin: 0 0 1rem;
       }
 
       .stats-row .highlight {
-        flex: 1 1 0;
+        min-width: 0;
         margin: 0;
         background: transparent;
+      }
+
+      .highlight__title {
+        overflow-wrap: anywhere;
       }
 
       .work-section {
@@ -166,14 +169,15 @@
       .image-wrap img,
       .image-wrap video {
         width: 100%;
+        max-width: 100%;
         height: auto;
         display: block;
       }
 
       .two-column-media {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 3vw, 2rem);
         margin: 2rem 0;
         align-items: center;
       }
@@ -219,11 +223,15 @@
       /* Grid system matching your style */
       .case-grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
         gap: 1.5rem;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1.5rem;
+      }
+
+      .case-grid > * {
+        min-width: 0;
       }
 
       .span-full { grid-column: 1 / -1; }
@@ -256,9 +264,20 @@
           padding: 2rem 0 1rem;
         }
 
+        .hero-kicker h1 {
+          font-size: clamp(2.5rem, 11vw, 4rem);
+        }
+
+        .hero-kicker > p {
+          font-size: clamp(1.25rem, 5vw, 2.25rem);
+        }
+
         .stats-row {
-          flex-direction: column;
-          text-align: center;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .stats-row .highlight:last-child:nth-child(odd) {
+          grid-column: 1 / -1;
         }
 
         .work-section {
@@ -320,11 +339,11 @@
         </div>
       </section>
 
-      <!-- What we did -->
+      <!-- Challenge and role -->
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">What we did</p>
+            <h2 class="f3 lh-title ma0">The challenge &amp; my role</h2>
             <div class="tag-wrapper">
               <span class="tag-pill">Brand strategy</span>
               <span class="tag-pill">Naming</span>
@@ -337,13 +356,11 @@
             </div>
           </div>
           <div class="start-5 span-6">
-            <p class="f4 lh-copy ma0">
-              Employee onboarding and offboarding involve more than adding or removing someone from a system. These processes span departments, tools, permissions, and admin tasks - and when they're fragmented, work becomes repetitive, coordination gets harder, and access can remain in place long after someone leaves.
-              <br /><br />
-              Handled set out to simplify this by bringing employee lifecycle management into one cohesive platform. The challenge was twofold: build a distinctive brand in a crowded, technically focused market, and translate that identity into a digital product that feels approachable, clear, and easy to understand.
-              <br /><br />
-              I led most of the design work across the brand, website, and product interface - building a connected experience from the first brand touchpoint through to the platform itself.
-            </p>
+            <div class="f4 lh-copy">
+              <p class="mt0">Employee onboarding and offboarding involve more than adding or removing someone from a system. These processes span departments, tools, permissions, and admin tasks; when fragmented, work becomes repetitive, coordination gets harder, and access can remain in place long after someone leaves.</p>
+              <p>Handled set out to bring employee lifecycle management into one cohesive platform. The challenge was to build a distinctive brand in a crowded, technically focused market and translate it into a digital product that feels approachable, clear, and easy to understand.</p>
+              <p class="mb0">I led most of the design work across the brand, website, and product interface, building a connected experience from the first brand touchpoint through to the platform itself.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -382,11 +399,11 @@
 
       <div class="divider case-grid"><div class="span-full"></div></div>
 
-      <!-- Brand idea -->
+      <!-- Brand strategy and identity -->
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Brand idea</p>
+            <h2 class="f3 lh-title ma0">Brand strategy &amp; identity</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
@@ -414,6 +431,20 @@
                 alt="Jimmy, the Handled brand character"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Website experience -->
+      <section class="work-section" aria-labelledby="website-title">
+        <div class="case-grid">
+          <div class="start-1 span-5">
+            <h2 id="website-title" class="f3 lh-title ma0">Website experience</h2>
+          </div>
+          <div class="start-5 span-6">
+            <p class="f4 lh-copy ma0">
+              The website leads with the recognizable problems teams face during employee transitions before introducing the platform. This keeps the story grounded in the customer’s day-to-day work and carries the approachable brand into the product explanation.
+            </p>
           </div>
         </div>
       </section>
@@ -510,7 +541,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">From brand to product</p>
+            <h2 class="f3 lh-title ma0">Product experience</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
@@ -558,7 +589,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Result</p>
+            <h2 class="f3 lh-title ma0">Result</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
@@ -574,7 +605,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Want to build a brand with a story too?</p>
+            <h2 class="f3 lh-title ma0">Want to build a brand with a story too?</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f6 ma0">

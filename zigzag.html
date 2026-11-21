@@ -138,18 +138,21 @@
       }
 
       .stats-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
         text-align: center;
         margin: 0 0 1rem;
       }
 
       .stats-row .highlight {
-        flex: 1 1 0;
+        min-width: 0;
         margin: 0;
         background: transparent;
+      }
+
+      .highlight__title {
+        overflow-wrap: anywhere;
       }
 
       .work-section {
@@ -166,14 +169,15 @@
       .image-wrap img,
       .image-wrap video {
         width: 100%;
+        max-width: 100%;
         height: auto;
         display: block;
       }
 
       .two-column-media {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 3vw, 2rem);
         margin: 2rem 0;
         align-items: center;
       }
@@ -248,11 +252,15 @@
       /* Grid system matching your style */
       .case-grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
         gap: 1.5rem;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1.5rem;
+      }
+
+      .case-grid > * {
+        min-width: 0;
       }
 
       .span-full { grid-column: 1 / -1; }
@@ -285,9 +293,16 @@
           padding: 2rem 0 1rem;
         }
 
+        .hero-kicker h1 {
+          font-size: clamp(2.5rem, 11vw, 4rem);
+        }
+
+        .hero-kicker > p {
+          font-size: clamp(1.25rem, 5vw, 2.25rem);
+        }
+
         .stats-row {
-          flex-direction: column;
-          text-align: center;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .work-section {
@@ -357,11 +372,11 @@
         </div>
       </section>
 
-      <!-- What we did -->
+      <!-- Challenge and role -->
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">What we did</p>
+            <h2 class="f3 lh-title ma0">The challenge &amp; my role</h2>
             <div class="tag-wrapper">
               <span class="tag-pill">App</span>
               <span class="tag-pill">Website</span>
@@ -372,12 +387,23 @@
             </div>
           </div>
           <div class="start-5 span-6">
+            <div class="f4 lh-copy">
+              <p class="mt0">No one gets a puppy because it's so much work. You get one because it's so cute! But raising a dog is a process of ups and downs. Zigzag guides new puppy owners through the journey and makes learning feel fun, even when things get messy.</p>
+              <p class="mb0">I worked with Zigzag's in-house team on the app over 18 months, contributing to the experience, design system, and website while carrying the cheerful brand into the product.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Design process -->
+      <section class="work-section" aria-labelledby="process-title">
+        <div class="case-grid">
+          <div class="start-1 span-5">
+            <h2 id="process-title" class="f3 lh-title ma0">How we worked</h2>
+          </div>
+          <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
-              No one gets a puppy because it's so much work. You get one because it's so cute! But raising a dog isn't something that happens overnight. It's a process of ups and downs. Zigzag guides you through the entire journey, and makes it fun too. Even when he poops on the carpet for the third time.
-              <br /><br />
-              We helped Zigzag as an in-house design team with the design of the app for 18 months. In bi-weekly sprints, we made the app slightly better each time, through design choices based on analytics and interviews with users.
-              <br /><br />
-              We also ensured that the cheerful branding was palpable in every corner of the app.
+              The team worked in bi-weekly sprints, using analytics and interviews with users to guide incremental improvements. This ongoing feedback loop helped us refine the app over time rather than treat the experience as a one-off redesign.
             </p>
           </div>
         </div>
@@ -420,7 +446,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Result</p>
+            <h2 class="f3 lh-title ma0">Result</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f4 lh-copy ma0">
@@ -434,7 +460,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">This is what the users say</p>
+            <h2 class="f3 lh-title ma0">What users say</h2>
           </div>
           <div class="span-full">
             <div class="quote-grid">
@@ -503,7 +529,7 @@
       <section class="work-section">
         <div class="case-grid">
           <div class="start-1 span-5">
-            <p class="f3 lh-title ma0">Want to turn your users into advocates too?</p>
+            <h2 class="f3 lh-title ma0">Want to turn your users into advocates too?</h2>
           </div>
           <div class="start-5 span-6">
             <p class="f6 ma0">
