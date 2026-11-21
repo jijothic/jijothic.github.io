@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Tram Cream Coffee — a brand identity that turns every coffee break into a moment of movement and renewal." />
+    <meta name="theme-color" content="#073d6d" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon@2x.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="16x16" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tram Cream Coffee — Brand identity case study" />
+    <meta property="og:description" content="The Emotional Station, Where Every Journey Begins." />
+    <meta property="og:image" content="/assets/cases/TramCreamCoffee/7dRLjZAF2k39LQWedP6752k2ag.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tram Cream Coffee — Brand identity case study" />
+    <meta name="twitter:description" content="The Emotional Station, Where Every Journey Begins." />
+    <meta name="twitter:image" content="/assets/cases/TramCreamCoffee/7dRLjZAF2k39LQWedP6752k2ag.webp" />
+    <title>Tram Cream Coffee — Brand identity | George Kibaru</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="preload" href="/assets/fonts/Vulf_Sans-Bold.ttf" as="font" crossorigin="anonymous" type="font/ttf" />
+    <link rel="preload" href="/assets/fonts/apercu-mono-regular-pro.ttf" as="font" crossorigin="anonymous" type="font/ttf" />
+    <style>
+      :root {
+        --tram-blue: #073d6d;
+        --tram-blue-deep: #042b4d;
+        --tram-cream: #f5eee5;
+        --tram-copper: #bb7d45;
+        --tram-ink: #17212b;
+        --tram-line: #d9d7d2;
+      }
+
+      body.not-loaded { opacity: 0; }
+      body { color: var(--tram-ink); }
+      .tram-page { overflow: hidden; }
+      .tram-nav { max-width: 1200px; margin: 0 auto; }
+      .tram-nav a:focus-visible,
+      .tram-page a:focus-visible { outline: 3px solid var(--tram-copper); outline-offset: 4px; }
+
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .span-full { grid-column: 1 / -1; }
+      .span-3 { grid-column: span 3; }
+      .span-4 { grid-column: span 4; }
+      .span-5 { grid-column: span 5; }
+      .span-6 { grid-column: span 6; }
+      .start-1 { grid-column-start: 1; }
+      .start-5 { grid-column-start: 5; }
+
+      .work-hero { padding: 3.5rem 0 1rem; }
+      .work-overview { color: #66717a; text-decoration: none; }
+      .hover-line { position: relative; }
+      .hover-line::after {
+        position: absolute;
+        right: 0;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        content: "";
+        background: currentColor;
+        transition: width .25s ease;
+      }
+      .hover-line:hover::after { width: 100%; }
+
+      .hero-copy { text-align: center; max-width: 780px; margin: 2.75rem auto 2.5rem; }
+      .hero-copy h1 { margin: 0; color: var(--tram-blue); }
+      .hero-copy p { max-width: 580px; margin: .7rem auto 0; color: #59636d; }
+      .tram-mark {
+        display: block;
+        width: min(210px, 48vw);
+        height: auto;
+        margin: 0 auto 1.2rem;
+      }
+      .hero-image {
+        position: relative;
+        overflow: hidden;
+        min-height: 24rem;
+        border-radius: 12px;
+        background: var(--tram-blue);
+      }
+      .hero-image img { display: block; width: 100%; height: 100%; min-height: 24rem; object-fit: cover; }
+      .hero-image::after {
+        position: absolute;
+        inset: auto 0 0;
+        height: 18%;
+        content: "";
+        background: linear-gradient(transparent, rgba(4, 43, 77, .28));
+        pointer-events: none;
+      }
+
+      .project-facts { padding: 2.5rem 0 1rem; }
+      .fact { border-top: 1px solid var(--tram-line); padding-top: .9rem; }
+      .fact__label { display: block; margin-bottom: .35rem; color: #6c7377; font-family: ApercuMonoProRegular, monospace; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; }
+      .fact__value { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+
+      .work-section { margin: 5.25rem 0; }
+      .section-label { margin: 0; color: var(--tram-blue); font-family: ApercuMonoProRegular, monospace; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+      .section-copy { margin: 0; font-size: 1.3rem; line-height: 1.65; }
+      .section-copy + .section-copy { margin-top: 1.25rem; }
+      .intro-copy { font-size: 1.55rem; line-height: 1.55; }
+      .divider { height: 1px; max-width: 1200px; margin: 0 auto; background: var(--tram-line); }
+
+      .tag-wrapper { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.15rem; }
+      .tag-pill { display: inline-block; padding: .35rem .8rem; border: 1px solid #cfd3d2; border-radius: 999px; color: #39454e; font-family: ApercuMonoProRegular, monospace; font-size: .74rem; }
+
+      .media { overflow: hidden; border-radius: 12px; background: var(--tram-cream); }
+      .media img { display: block; width: 100%; height: auto; }
+      .media--contain { display: grid; min-height: 22rem; place-items: center; padding: 1.75rem; }
+      .media--contain img { max-height: 32rem; object-fit: contain; }
+      .media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+      .media-grid--asymmetric { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: stretch; }
+      .media-grid .media { margin: 0; }
+      .media--full { margin-top: 2.25rem; }
+
+      .strategy-panel { padding: 2.25rem; border-radius: 12px; background: var(--tram-blue); color: #fff; }
+      .strategy-panel h3 { margin: 0; color: var(--tram-cream); }
+      .strategy-panel p { margin: .75rem 0 0; color: rgba(255, 255, 255, .82); font-size: 1.03rem; line-height: 1.55; }
+      .strategy-panel--copper { background: var(--tram-copper); }
+      .strategy-panel--cream { background: var(--tram-cream); color: var(--tram-ink); }
+      .strategy-panel--cream h3 { color: var(--tram-blue); }
+      .strategy-panel--cream p { color: #3d4851; }
+      .strategy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+
+      .quote-band { padding: 5.25rem 0; background: var(--tram-blue); color: var(--tram-cream); }
+      .quote-band blockquote { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; font-size: clamp(1.8rem, 4vw, 3.35rem); line-height: 1.22; text-align: center; }
+      .quote-band cite { display: block; margin-top: 1.5rem; color: #dfc6b0; font-family: ApercuMonoProRegular, monospace; font-size: .8rem; font-style: normal; letter-spacing: .05em; text-transform: uppercase; }
+
+      .work-credit { max-width: 1200px; margin: 5.25rem auto; padding: 3.25rem 1.5rem; border-radius: 12px; background: var(--tram-cream); }
+      .credit-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; }
+      .credit-title { grid-column: span 4; margin: 0; color: var(--tram-blue); font-family: ApercuMonoProRegular, monospace; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+      .credit-list { grid-column: 5 / -1; margin: 0; padding: 0; list-style: none; }
+      .credit-list li { margin-bottom: .6rem; font-size: 1rem; line-height: 1.45; }
+      .credit-list strong { color: var(--tram-blue); }
+
+      .related-card { display: block; overflow: hidden; border-radius: 12px; color: inherit; text-decoration: none; }
+      .related-card img { display: block; width: 100%; transition: transform .35s ease; }
+      .related-card:hover img { transform: scale(1.025); }
+      .related-card__meta { display: flex; justify-content: space-between; gap: 1rem; margin-top: .9rem; color: #66717a; font-family: ApercuMonoProRegular, monospace; font-size: .76rem; }
+      .related-card__title { margin: .3rem 0 0; color: var(--tram-ink); font-size: 1.45rem; }
+
+      @media (max-width: 768px) {
+        .tram-nav { margin: 0; }
+        .case-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0 1rem; }
+        .span-3, .span-4, .span-5, .span-6 { grid-column: 1 / -1; }
+        .start-1, .start-5 { grid-column-start: 1; }
+        .work-hero { padding-top: 2rem; }
+        .hero-copy { margin: 2rem auto; }
+        .hero-copy h1 { font-size: 2.6rem; }
+        .hero-image, .hero-image img { min-height: 17rem; }
+        .project-facts { padding-top: 1.5rem; }
+        .work-section { margin: 3.25rem 0; }
+        .section-copy, .intro-copy { font-size: 1.12rem; }
+        .media-grid, .media-grid--asymmetric, .strategy-grid { grid-template-columns: 1fr; }
+        .media--contain { min-height: 0; }
+        .strategy-panel { padding: 1.5rem; }
+        .quote-band { padding: 3.5rem 0; }
+        .work-credit { margin: 3.25rem 1rem; padding: 2rem 1.25rem; }
+        .credit-grid { grid-template-columns: 1fr; gap: 1rem; }
+        .credit-title, .credit-list { grid-column: 1 / -1; }
+      }
+    </style>
+  </head>
+  <body class="not-loaded">
+    <div class="tram-page">
+      <nav class="tram-nav mt4 mt5-s ph3 ph4-l">
+        <a href="/" class="black no-underline normal pl2 itsmyname">George <span class="itsmyname-mack">jijothic</span><span class="dn"> Kibaru</span></a>
+      </nav>
+
+      <main>
+        <section class="work-hero" aria-labelledby="case-title">
+          <div class="case-grid">
+            <div class="span-full">
+              <a href="/" class="work-overview f6"><span class="hover-line">← Work overview</span></a>
+            </div>
+            <div class="span-full hero-copy">
+              <img class="tram-mark" src="/assets/cases/TramCreamCoffee/tram_cream_coffee_logo.png" alt="Tram Cream Coffee" width="2000" height="1177" />
+              <h1 id="case-title" class="f1 lh-title">Tram Cream Coffee</h1>
+              <p class="f2 lh-title">The Emotional Station, Where Every Journey Begins</p>
+            </div>
+            <div class="span-full hero-image">
+              <img src="/assets/cases/TramCreamCoffee/7dRLjZAF2k39LQWedP6752k2ag.webp" alt="Tram Cream Coffee products and Barista coffee packaging gathered in a basket" width="1658" height="1074" fetchpriority="high" />
+            </div>
+          </div>
+        </section>
+
+        <section class="project-facts" aria-label="Project details">
+          <div class="case-grid">
+            <div class="span-3 fact"><span class="fact__label">Industry</span><p class="fact__value">Food &amp; Beverage</p></div>
+            <div class="span-3 fact"><span class="fact__label">Client</span><p class="fact__value">Tram Cream Coffee</p></div>
+            <div class="span-3 fact"><span class="fact__label">Location</span><p class="fact__value">United States</p></div>
+            <div class="span-3 fact"><span class="fact__label">Scope</span><p class="fact__value">Brand, packaging &amp; digital</p></div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-labelledby="overview-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="overview-title" class="section-label">Overview</h2></div>
+            <div class="start-5 span-6">
+              <p class="section-copy intro-copy">Tram Cream Coffee is a quiet station within the rhythm of everyday life. Inspired by the spirit of a transit point, it embraces the beauty of pausing, reconnecting, and preparing for what comes next.</p>
+              <p class="section-copy">Each cup becomes a small ritual of renewal; each visit, a moment to gather thoughts before moving forward. The identity balances warmth and stillness through a restrained visual language that lets atmosphere, materiality, and emotion take centre stage.</p>
+              <div class="tag-wrapper" aria-label="Scope of work">
+                <span class="tag-pill">Brand concept &amp; story</span>
+                <span class="tag-pill">Logo design</span>
+                <span class="tag-pill">Visual identity</span>
+                <span class="tag-pill">Packaging design</span>
+                <span class="tag-pill">Website design</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-label="Tram Cream Coffee packaging and retail applications">
+          <div class="case-grid">
+            <div class="span-full media"><img src="/assets/cases/TramCreamCoffee/C33E7gqmhv5M10JtK5dAgdRetQ.webp" alt="Tram Barista coffee packaging with instructions and coffee beans" width="1659" height="1073" loading="lazy" decoding="async" /></div>
+          </div>
+        </section>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <section class="work-section" aria-labelledby="challenge-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="challenge-title" class="section-label">The challenge</h2></div>
+            <div class="start-5 span-6">
+              <p class="section-copy">Tram Cream Coffee needed to become more than another name in a crowded coffee market. The task was to build a living identity people could connect with: an emotional signature with a meaningful story and a distinctive presence that customers could recognise, trust, and remember across locations.</p>
+            </div>
+            <div class="span-full strategy-grid" aria-label="Project missions">
+              <article class="strategy-panel"><h3 class="f4">01 — Make meaning</h3><p>Craft a brand story that lays the foundation for enduring love and connection.</p></article>
+              <article class="strategy-panel strategy-panel--copper"><h3 class="f4">02 — Build flexibility</h3><p>Design a visual identity that can inspire while adapting across every touchpoint.</p></article>
+              <article class="strategy-panel strategy-panel--cream"><h3 class="f4">03 — Create coherence</h3><p>Execute a holistic system with depth, consistency, and long-term sustainability.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-label="Tram Cream Coffee product range">
+          <div class="case-grid">
+            <div class="span-full media"><img src="/assets/cases/TramCreamCoffee/ca1f7KWZEpo6IIdrWvELlfzgFA.webp" alt="Tram Cream Coffee retail display with branded cups, coffee bags and merchandise" width="2048" height="2048" loading="lazy" decoding="async" /></div>
+          </div>
+        </section>
+
+        <section class="quote-band" aria-label="Brand idea">
+          <blockquote>“A station, not as a physical stop, but as a mental pause.”<cite>Tram Cream Coffee creative direction</cite></blockquote>
+        </section>
+
+        <section class="work-section" aria-labelledby="strategy-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="strategy-title" class="section-label">Our strategy</h2></div>
+            <div class="start-5 span-6">
+              <p class="section-copy">The creative direction reimagines the station as a place for creativity, connection, and reflection. Transportation architecture, Vietnamese coffee culture, and modern graphic systems meet to balance structure with emotion, practicality with poetry.</p>
+            </div>
+            <div class="span-full media-grid media-grid--asymmetric">
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/NaZ94ZEI8L8pYUO1QAGNB8.webp" alt="Tram Cream Coffee cups in three branded styles" width="3795" height="2048" loading="lazy" decoding="async" /></figure>
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/d67MrQTT7l8yifPTU5z7MMwM8v4.webp" alt="Tram Barista coffee bag being held outside a tram" width="1622" height="1554" loading="lazy" decoding="async" /></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-labelledby="system-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="system-title" class="section-label">Design system</h2></div>
+            <div class="start-5 span-6"><p class="section-copy">The visual language takes its cues from railway shelters, station signage, rail lines, and the nostalgia of Vietnamese coffee culture. Graphic patterns carry the rhythm of travel, while the palette makes the system feel familiar and inviting.</p></div>
+            <div class="span-full media-grid">
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/oYdiZTJzldYFuOAlhLggduNZes.webp" alt="Tram coffee bags arranged in a row, showing the walking coffee filter mascot" width="1591" height="1061" loading="lazy" decoding="async" /></figure>
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/imtmWOrLP9rCbG7gqdPxxBgthp8.webp" alt="Barista holding a Tram Cream Coffee cup in a branded apron" width="1622" height="1554" loading="lazy" decoding="async" /></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-labelledby="experience-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="experience-title" class="section-label">Brand experience</h2></div>
+            <div class="start-5 span-6"><p class="section-copy">A walking Vietnamese coffee filter becomes the brand’s optimistic guide: a character for exploration, Vietnamese pride, and the momentum of daily life. From packaging to street-level signage, every touchpoint forms part of a continuous emotional journey.</p></div>
+            <div class="span-full media-grid media-grid--asymmetric">
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/7dRLjZAF2k39LQWedP6752k2ag.webp" alt="Tram coffee packaging inside a metal shopping basket" width="1658" height="1074" loading="lazy" decoding="async" /></figure>
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/DC9Re9P01mmG6XM02QPiqxwyIeI.webp" alt="Tram Cream Coffee branded fabric ticket emerging from a station-style slot" width="1005" height="1005" loading="lazy" decoding="async" /></figure>
+            </div>
+            <div class="span-full media media--full"><img src="/assets/cases/TramCreamCoffee/gICSNaZsHzhLGvQwTj9hQfD8dKg.webp" alt="Tram Cream Coffee bags on a shelf, including a floating bag that suggests movement" width="1659" height="1073" loading="lazy" decoding="async" /></div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-label="Tram Cream Coffee signage">
+          <div class="case-grid">
+            <div class="span-full media-grid">
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/cqfwzqga91lyHKdO6BOIShhspk.webp" alt="Tram Cream Coffee posters displayed at a transit shelter" width="978" height="978" loading="lazy" decoding="async" /></figure>
+              <figure class="media"><img src="/assets/cases/TramCreamCoffee/uWVGQYkCHOOXSqh8VgmOf6URT4.webp" alt="Tram Cream Coffee station sign on a tiled building" width="56" height="56" loading="lazy" decoding="async" /></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" aria-labelledby="result-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="result-title" class="section-label">The result</h2></div>
+            <div class="start-5 span-6">
+              <p class="section-copy intro-copy">Tram Cream Coffee is more than a design project—it is a place where every pause becomes the beginning of something greater.</p>
+              <p class="section-copy">The resulting system brings consistency to the brand’s story, visual language, packaging, and future customer experiences. It is designed to move with people through cities, stories, and the quiet joy of being present.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-credit" aria-labelledby="credits-title">
+          <div class="credit-grid">
+            <h2 id="credits-title" class="credit-title">Credits</h2>
+            <ul class="credit-list">
+              <li><strong>Visual branding</strong> / FPDB Creative</li>
+              <li><strong>Executive Creative Director</strong> / Duc Bui</li>
+              <li><strong>Creative Director</strong> / Andy Ho</li>
+              <li><strong>Project Manager</strong> / Van Duc Hoa</li>
+              <li><strong>Lead Designer &amp; Motion Designer</strong> / Tung Do</li>
+              <li><strong>Brand Designers</strong> / Tan Le, Huy Nguyen &amp; Tuan Dinh</li>
+              <li><strong>3D Visualizer</strong> / Dat Vu</li>
+              <li><strong>Motion Designer</strong> / Trung Tran</li>
+              <li><strong>Client</strong> / Tram Cream Coffee</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="work-section" aria-labelledby="related-title">
+          <div class="case-grid">
+            <div class="start-1 span-4"><h2 id="related-title" class="section-label">More work</h2></div>
+            <div class="start-5 span-6"><a href="/handled.html" class="related-card"><img src="/assets/cases/handled/6a18015c6b1e847513ab7476_Handled%2001-p-1080.webp" alt="Handled brand identity preview" width="1080" height="608" loading="lazy" decoding="async" /><div class="related-card__meta"><span>Handled</span><span>Branding &amp; website →</span></div><p class="related-card__title">A more human approach to employee lifecycle management.</p></a></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mb4 mv4-s ph3 ph4-l center tc tl-l">
+        <div class="flex flex-wrap ph2 mv2">
+          <p class="flex-auto mv0-l"><a href="/" class="black no-underline itsmyname">George <span class="itsmyname-mack">Jijothic</span><span class="dn"> Kibaru</span></a> <span class="o-30">|</span> Detail-obsessed Design Engineer</p>
+          <ul class="pa0 mt0 mv0-l w-100 f6 f5-l w-auto-l center">
+            <li class="dib mr1 mb1 mb0-s"><a class="blue link" href="hello.html">Say hello</a></li>
+            <li class="dib mr1"><a class="black link external-link" href="https://www.linkedin.com/in/george-kibaru-57a7b943/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li class="dib mr1"><a class="black link external-link" href="https://twitter.com/cibaru" target="_blank" rel="noopener">Twitter</a></li>
+            <li class="dib mr1"><a class="black link external-link" href="https://dribbble.com/Cibaru" target="_blank" rel="noopener">Dribbble</a></li>
+            <li class="dib"><a class="black link external-link" href="https://instagram.com/prooctor" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <p class="f7 gray ma0 ph2">Handmade with all-vanilla HTML/CSS/JS.</p>
+      </footer>
+    </div>
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    <script src="/style.js" type="text/javascript"></script>
+    <script>document.addEventListener('DOMContentLoaded', function () { document.body.classList.remove('not-loaded'); });</script>
+  </body>
+</html>
